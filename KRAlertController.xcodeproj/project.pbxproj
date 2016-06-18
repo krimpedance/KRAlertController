@@ -1,0 +1,401 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 47;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BA755561D149DD9007B06A5 /* KRAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA755551D149DD9007B06A5 /* KRAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BA7555D1D149DD9007B06A5 /* KRAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA755521D149DD9007B06A5 /* KRAlertController.framework */; };
+		4BA755621D149DD9007B06A5 /* KRAlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA755611D149DD9007B06A5 /* KRAlertControllerTests.swift */; };
+		4BC862761D15139900B7156E /* Classes in Resources */ = {isa = PBXBuildFile; fileRef = 4BC862751D15139900B7156E /* Classes */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4BA7555E1D149DD9007B06A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BA755491D149DD9007B06A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BA755511D149DD9007B06A5;
+			remoteInfo = KRAlertController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4BA755521D149DD9007B06A5 /* KRAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA755551D149DD9007B06A5 /* KRAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRAlertController.h; sourceTree = "<group>"; };
+		4BA755571D149DD9007B06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BA7555C1D149DD9007B06A5 /* KRAlertControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KRAlertControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA755611D149DD9007B06A5 /* KRAlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRAlertControllerTests.swift; sourceTree = "<group>"; };
+		4BA755631D149DD9007B06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BC862751D15139900B7156E /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Classes; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BA7554E1D149DD9007B06A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA755591D149DD9007B06A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA7555D1D149DD9007B06A5 /* KRAlertController.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BA755481D149DD9007B06A5 = {
+			isa = PBXGroup;
+			children = (
+				4BA755541D149DD9007B06A5 /* KRAlertController */,
+				4BA755601D149DD9007B06A5 /* KRAlertControllerTests */,
+				4BA755531D149DD9007B06A5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BA755531D149DD9007B06A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BA755521D149DD9007B06A5 /* KRAlertController.framework */,
+				4BA7555C1D149DD9007B06A5 /* KRAlertControllerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BA755541D149DD9007B06A5 /* KRAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				4BC862751D15139900B7156E /* Classes */,
+				4BA755551D149DD9007B06A5 /* KRAlertController.h */,
+				4BA755571D149DD9007B06A5 /* Info.plist */,
+			);
+			path = KRAlertController;
+			sourceTree = "<group>";
+		};
+		4BA755601D149DD9007B06A5 /* KRAlertControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				4BA755611D149DD9007B06A5 /* KRAlertControllerTests.swift */,
+				4BA755631D149DD9007B06A5 /* Info.plist */,
+			);
+			path = KRAlertControllerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4BA7554F1D149DD9007B06A5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA755561D149DD9007B06A5 /* KRAlertController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4BA755511D149DD9007B06A5 /* KRAlertController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA755661D149DD9007B06A5 /* Build configuration list for PBXNativeTarget "KRAlertController" */;
+			buildPhases = (
+				4BA7554D1D149DD9007B06A5 /* Sources */,
+				4BA7554E1D149DD9007B06A5 /* Frameworks */,
+				4BA7554F1D149DD9007B06A5 /* Headers */,
+				4BA755501D149DD9007B06A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KRAlertController;
+			productName = KRAlertController;
+			productReference = 4BA755521D149DD9007B06A5 /* KRAlertController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4BA7555B1D149DD9007B06A5 /* KRAlertControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BA755691D149DD9007B06A5 /* Build configuration list for PBXNativeTarget "KRAlertControllerTests" */;
+			buildPhases = (
+				4BA755581D149DD9007B06A5 /* Sources */,
+				4BA755591D149DD9007B06A5 /* Frameworks */,
+				4BA7555A1D149DD9007B06A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BA7555F1D149DD9007B06A5 /* PBXTargetDependency */,
+			);
+			name = KRAlertControllerTests;
+			productName = KRAlertControllerTests;
+			productReference = 4BA7555C1D149DD9007B06A5 /* KRAlertControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BA755491D149DD9007B06A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Krimpedance;
+				TargetAttributes = {
+					4BA755511D149DD9007B06A5 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					4BA7555B1D149DD9007B06A5 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 4BA7554C1D149DD9007B06A5 /* Build configuration list for PBXProject "KRAlertController" */;
+			compatibilityVersion = "Xcode 6.3";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4BA755481D149DD9007B06A5;
+			productRefGroup = 4BA755531D149DD9007B06A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BA755511D149DD9007B06A5 /* KRAlertController */,
+				4BA7555B1D149DD9007B06A5 /* KRAlertControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4BA755501D149DD9007B06A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BC862761D15139900B7156E /* Classes in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA7555A1D149DD9007B06A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BA7554D1D149DD9007B06A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BA755581D149DD9007B06A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BA755621D149DD9007B06A5 /* KRAlertControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4BA7555F1D149DD9007B06A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BA755511D149DD9007B06A5 /* KRAlertController */;
+			targetProxy = 4BA7555E1D149DD9007B06A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4BA755641D149DD9007B06A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4BA755651D149DD9007B06A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4BA755671D149DD9007B06A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = KRAlertController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4BA755681D149DD9007B06A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = KRAlertController/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4BA7556A1D149DD9007B06A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KRAlertControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4BA7556B1D149DD9007B06A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = KRAlertControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BA7554C1D149DD9007B06A5 /* Build configuration list for PBXProject "KRAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA755641D149DD9007B06A5 /* Debug */,
+				4BA755651D149DD9007B06A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BA755661D149DD9007B06A5 /* Build configuration list for PBXNativeTarget "KRAlertController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA755671D149DD9007B06A5 /* Debug */,
+				4BA755681D149DD9007B06A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BA755691D149DD9007B06A5 /* Build configuration list for PBXNativeTarget "KRAlertControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BA7556A1D149DD9007B06A5 /* Debug */,
+				4BA7556B1D149DD9007B06A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BA755491D149DD9007B06A5 /* Project object */;
+}
