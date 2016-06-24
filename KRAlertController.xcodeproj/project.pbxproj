@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B53A29A1D1576A300EC2669 /* KRAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B53A2991D1576A300EC2669 /* KRAlertController.swift */; };
+		4B53A29C1D1576D600EC2669 /* KRAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B53A29B1D1576D600EC2669 /* KRAlertControllerExtensions.swift */; };
+		4B5A5EA71D19140B00041FA5 /* KRAlertBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5A5EA61D19140B00041FA5 /* KRAlertBaseViewController.swift */; };
+		4B7576F31D1C33D3003FF258 /* KRAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7576F01D1C33D3003FF258 /* KRAlertButton.swift */; };
+		4B7576F41D1C33D3003FF258 /* KRAlertButtonTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7576F11D1C33D3003FF258 /* KRAlertButtonTable.swift */; };
+		4B7576F51D1C33D3003FF258 /* KRAlertContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7576F21D1C33D3003FF258 /* KRAlertContentView.swift */; };
+		4B7576F81D1C392C003FF258 /* KRAlertIconPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7576F71D1C392C003FF258 /* KRAlertIconPath.swift */; };
 		4BA755561D149DD9007B06A5 /* KRAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA755551D149DD9007B06A5 /* KRAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BA7555D1D149DD9007B06A5 /* KRAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA755521D149DD9007B06A5 /* KRAlertController.framework */; };
 		4BA755621D149DD9007B06A5 /* KRAlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA755611D149DD9007B06A5 /* KRAlertControllerTests.swift */; };
-		4BC862761D15139900B7156E /* Classes in Resources */ = {isa = PBXBuildFile; fileRef = 4BC862751D15139900B7156E /* Classes */; };
+		4BAB3F2A1D1D2C4200949F4F /* KRAlertTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB3F291D1D2C4200949F4F /* KRAlertTextFieldView.swift */; };
+		4BAB3F2C1D1D9BF700949F4F /* KRAlertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB3F2B1D1D9BF700949F4F /* KRAlertTextField.swift */; };
+		4BB4B9561D15A30E004570F1 /* KRAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4B9551D15A30E004570F1 /* KRAlertAction.swift */; };
+		4BF2395C1D1A428A0076415B /* KRAlertControllerEnumerates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2395B1D1A428A0076415B /* KRAlertControllerEnumerates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,13 +34,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B53A2991D1576A300EC2669 /* KRAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertController.swift; sourceTree = "<group>"; };
+		4B53A29B1D1576D600EC2669 /* KRAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		4B5A5EA61D19140B00041FA5 /* KRAlertBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertBaseViewController.swift; sourceTree = "<group>"; };
+		4B7576F01D1C33D3003FF258 /* KRAlertButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertButton.swift; sourceTree = "<group>"; };
+		4B7576F11D1C33D3003FF258 /* KRAlertButtonTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertButtonTable.swift; sourceTree = "<group>"; };
+		4B7576F21D1C33D3003FF258 /* KRAlertContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertContentView.swift; sourceTree = "<group>"; };
+		4B7576F71D1C392C003FF258 /* KRAlertIconPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertIconPath.swift; sourceTree = "<group>"; };
 		4BA755521D149DD9007B06A5 /* KRAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KRAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA755551D149DD9007B06A5 /* KRAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRAlertController.h; sourceTree = "<group>"; };
 		4BA755571D149DD9007B06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA7555C1D149DD9007B06A5 /* KRAlertControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KRAlertControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA755611D149DD9007B06A5 /* KRAlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRAlertControllerTests.swift; sourceTree = "<group>"; };
 		4BA755631D149DD9007B06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BC862751D15139900B7156E /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Classes; sourceTree = "<group>"; };
+		4BAB3F291D1D2C4200949F4F /* KRAlertTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertTextFieldView.swift; sourceTree = "<group>"; };
+		4BAB3F2B1D1D9BF700949F4F /* KRAlertTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertTextField.swift; sourceTree = "<group>"; };
+		4BB4B9551D15A30E004570F1 /* KRAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertAction.swift; sourceTree = "<group>"; };
+		4BF2395B1D1A428A0076415B /* KRAlertControllerEnumerates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertControllerEnumerates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +72,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B53A2981D1576A300EC2669 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4BB4B9551D15A30E004570F1 /* KRAlertAction.swift */,
+				4B5A5EA61D19140B00041FA5 /* KRAlertBaseViewController.swift */,
+				4B53A2991D1576A300EC2669 /* KRAlertController.swift */,
+				4B7576EF1D1C33D3003FF258 /* KRAlertContentView */,
+				4B7576F61D1C3832003FF258 /* SupportFiles */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4B7576EF1D1C33D3003FF258 /* KRAlertContentView */ = {
+			isa = PBXGroup;
+			children = (
+				4B7576F01D1C33D3003FF258 /* KRAlertButton.swift */,
+				4B7576F11D1C33D3003FF258 /* KRAlertButtonTable.swift */,
+				4B7576F21D1C33D3003FF258 /* KRAlertContentView.swift */,
+				4BAB3F2B1D1D9BF700949F4F /* KRAlertTextField.swift */,
+				4BAB3F291D1D2C4200949F4F /* KRAlertTextFieldView.swift */,
+			);
+			path = KRAlertContentView;
+			sourceTree = "<group>";
+		};
+		4B7576F61D1C3832003FF258 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				4BF2395B1D1A428A0076415B /* KRAlertControllerEnumerates.swift */,
+				4B53A29B1D1576D600EC2669 /* KRAlertControllerExtensions.swift */,
+				4B7576F71D1C392C003FF258 /* KRAlertIconPath.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 		4BA755481D149DD9007B06A5 = {
 			isa = PBXGroup;
 			children = (
@@ -73,7 +127,7 @@
 		4BA755541D149DD9007B06A5 /* KRAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				4BC862751D15139900B7156E /* Classes */,
+				4B53A2981D1576A300EC2669 /* Classes */,
 				4BA755551D149DD9007B06A5 /* KRAlertController.h */,
 				4BA755571D149DD9007B06A5 /* Info.plist */,
 			);
@@ -180,7 +234,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BC862761D15139900B7156E /* Classes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +251,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB4B9561D15A30E004570F1 /* KRAlertAction.swift in Sources */,
+				4B53A29A1D1576A300EC2669 /* KRAlertController.swift in Sources */,
+				4B7576F41D1C33D3003FF258 /* KRAlertButtonTable.swift in Sources */,
+				4BF2395C1D1A428A0076415B /* KRAlertControllerEnumerates.swift in Sources */,
+				4B7576F51D1C33D3003FF258 /* KRAlertContentView.swift in Sources */,
+				4BAB3F2C1D1D9BF700949F4F /* KRAlertTextField.swift in Sources */,
+				4B7576F31D1C33D3003FF258 /* KRAlertButton.swift in Sources */,
+				4BAB3F2A1D1D2C4200949F4F /* KRAlertTextFieldView.swift in Sources */,
+				4B5A5EA71D19140B00041FA5 /* KRAlertBaseViewController.swift in Sources */,
+				4B53A29C1D1576D600EC2669 /* KRAlertControllerExtensions.swift in Sources */,
+				4B7576F81D1C392C003FF258 /* KRAlertIconPath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -301,7 +365,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -320,7 +384,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KRAlertController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -337,7 +401,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = KRAlertController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";

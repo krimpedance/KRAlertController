@@ -1,5 +1,5 @@
 //
-//  KRAlertView.swift
+//  KRAlertContoller.swift
 //
 //  Copyright © 2016年 Krimpedance. All rights reserved.
 //
@@ -7,111 +7,94 @@
 import UIKit
 
 
-public enum KRAlertViewStyle {
-    case Success, Information, Warning, Error, Edit
+/**
+ *  KRAlertController -----------------
+ */
+public final class KRAlertController {
+    
+    public var title: String?
+    public var message: String?
+ 
+    public private(set) var style = KRAlertControllerStyle.Alert
+    public var type = KRAlertControllerType.Normal
+    
+    public private(set) var actions = [KRAlertAction]()
+    public var preferredAction: KRAlertAction?
+    
+    var alertTextFields = [KRAlertTextField]()
+    public var textFields: [UITextField] { return alertTextFields }
 }
 
-public enum KRActionType {
-    case None, Selector, Closure
-}
 
 /**
- *  KRAlertContentView
+ *  Initializer ------------
  */
+extension KRAlertController {
+    public convenience init(title: String?, message: String?) {
+        self.init()
+        self.title = title
+        self.message = message
+    }
 
+    public convenience init(title: String?, message: String?, style: KRAlertControllerStyle) {
+        self.init(title: title, message: message)
+        self.style = style
+    }
 
-
-/**
- *  KRAlertView (Main)
- */
-public final class KRAlertView {
-    
-    // component
-    let baseViewController = UIViewController()
-   
-    let alertView = UIView()
-    let titleLabel = UILabel()
-    let messageLabel = UILabel()
-    
-    
-    public init() {
-        layoutInitialization()
+    public convenience init(title: String?, message: String?, style: KRAlertControllerStyle, type: KRAlertControllerType) {
+        self.init(title: title, message: message, style: style)
+        self.type = type
     }
 }
 
 
 /**
- *  Layout -------------------------
+ *  Add Actions -------------
  */
-extension KRAlertView {
-    private func layoutInitialization() {
-        baseViewController.modalPresentationStyle = .OverCurrentContext
-        baseViewController.view.backgroundColor = UIColor(white: 0, alpha: 0.4)
-        baseViewController.view.alpha = 0.0
+extension KRAlertController {
+    public func addAction(action: KRAlertAction) {
+        if actions.contains({ $0.style == .Cancel }) {
+            assert(action.style == .Cancel , "KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
+        }
+        actions.append(action)
+    }
+
+    public func addTextFieldWithConfigurationHandler(configurationHandler: ((textField: UITextField) -> Void)?) {
+        assert(style == .Alert, "Text fields can only be added to an alert controller of style KRAlertControllerStyle.Alert")
+        assert(textFields.count < 3, "KRAlertController can add text fields up to 3")
         
-        alertView.frame = CGRect(x: 0, y: 0, width: 270, height: 85)
-        alertView.center = baseViewController.view.center
-        alertView.autoresizingMask = [.FlexibleTopMargin, .FlexibleRightMargin, .FlexibleBottomMargin, .FlexibleLeftMargin]
-        alertView.backgroundColor = .whiteColor()
-        alertView.layer.cornerRadius = 10
-        baseViewController.view.addSubview(alertView)
-        
-        titleLabel.frame = CGRect(x: 10, y: 20, width: 250, height: 25)
-        titleLabel.backgroundColor = .clearColor()
-        titleLabel.font = UIFont.systemFontOfSize(20)
-        titleLabel.textAlignment = .Center
-        titleLabel.text = "hogehoge"
-        alertView.addSubview(titleLabel)
-        
-        messageLabel.frame = CGRect(x: 10, y: 50, width: 250, height: 15)
-        messageLabel.backgroundColor = .clearColor()
-        messageLabel.font = UIFont.systemFontOfSize(13)
-        messageLabel.textAlignment = .Center
-        messageLabel.numberOfLines = 0
-        messageLabel.text = "hogehoge"
-        alertView.addSubview(messageLabel)
+        let textField = KRAlertTextField(type: type)
+        configurationHandler?(textField: textField)
+        alertTextFields.append(textField)
     }
 }
 
 
 /**
- *  Add Button
+ *  Show ------------
  */
-extension KRAlertView {
+extension KRAlertController {
+    private func makeAlertViewController() -> KRAlertBaseViewController {
+        let baseVC = KRAlertBaseViewController()
+        baseVC.style = style
+        let view = KRAlertContentView(title: title, message: message, actions: actions, textFields: alertTextFields, style: style, type: type)
+        baseVC.addContentView(view)
+        return baseVC
+    }
     
-}
-
-
-/**
- *  Show
- */
-extension KRAlertView {
     public func show() {
-        let visibleViewController = UIApplication.topViewController()
-        visibleViewController!.presentViewController(baseViewController, animated: false) {
+        guard let visibleVC = UIApplication.topViewController() else {
+            print("View controller to present alert controller isn't found!")
+            return
+        }
+
+        let alertVC = makeAlertViewController()
+        alertVC.statusBarHidden = visibleVC.prefersStatusBarHidden()
+        
+        visibleVC.presentViewController(alertVC, animated: false) {
             UIView.animateWithDuration(0.2) {
-                self.baseViewController.view.alpha = 1.0
+                alertVC.showContent()
             }
         }
-    }
-}
-
-
-/**
- *  UIApplication
- */
-extension UIApplication {
-    class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
-        if let nav = base as? UINavigationController {
-            return topViewController(nav.visibleViewController)
-        }
-        if let tab = base as? UITabBarController {
-            guard let selected = tab.selectedViewController else { return base }
-            return topViewController(selected)
-        }
-        if let presented = base?.presentedViewController {
-            return topViewController(presented)
-        }
-        return base
     }
 }

@@ -12,6 +12,9 @@
 		4B57149A1D1512F00083C8FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5714981D1512F00083C8FC /* Main.storyboard */; };
 		4B57149C1D1512F00083C8FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B57149B1D1512F00083C8FC /* Assets.xcassets */; };
 		4B57149F1D1512F00083C8FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B57149D1D1512F00083C8FC /* LaunchScreen.storyboard */; };
+		4BAB3F251D1D134100949F4F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB3F241D1D134100949F4F /* UIViewExtension.swift */; };
+		4BAB3F2F1D1DAE5B00949F4F /* KRAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8125B11D151320002DFB93 /* KRAlertController.framework */; };
+		4BAB3F301D1DAE5B00949F4F /* KRAlertController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8125B11D151320002DFB93 /* KRAlertController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +32,28 @@
 			remoteGlobalIDString = 4BA7555C1D149DD9007B06A5;
 			remoteInfo = KRAlertControllerTests;
 		};
+		4BAB3F311D1DAE5B00949F4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B8125AB1D151320002DFB93 /* KRAlertController.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BA755511D149DD9007B06A5;
+			remoteInfo = KRAlertController;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4BAB3F331D1DAE5B00949F4F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4BAB3F301D1DAE5B00949F4F /* KRAlertController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4B5714911D1512F00083C8FC /* KRAlertControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KRAlertControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +64,7 @@
 		4B57149E1D1512F00083C8FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B5714A01D1512F00083C8FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B8125AB1D151320002DFB93 /* KRAlertController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KRAlertController.xcodeproj; path = ../KRAlertController.xcodeproj; sourceTree = "<group>"; };
+		4BAB3F241D1D134100949F4F /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BAB3F2F1D1DAE5B00949F4F /* KRAlertController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +101,7 @@
 			children = (
 				4B5714941D1512F00083C8FC /* AppDelegate.swift */,
 				4B5714961D1512F00083C8FC /* ViewController.swift */,
+				4BAB3F241D1D134100949F4F /* UIViewExtension.swift */,
 				4B5714981D1512F00083C8FC /* Main.storyboard */,
 				4B57149B1D1512F00083C8FC /* Assets.xcassets */,
 				4B57149D1D1512F00083C8FC /* LaunchScreen.storyboard */,
@@ -102,10 +129,12 @@
 				4B57148D1D1512EF0083C8FC /* Sources */,
 				4B57148E1D1512EF0083C8FC /* Frameworks */,
 				4B57148F1D1512EF0083C8FC /* Resources */,
+				4BAB3F331D1DAE5B00949F4F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4BAB3F321D1DAE5B00949F4F /* PBXTargetDependency */,
 			);
 			name = KRAlertControllerDemo;
 			productName = KRAlertControllerDemo;
@@ -186,12 +215,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BAB3F251D1D134100949F4F /* UIViewExtension.swift in Sources */,
 				4B5714971D1512F00083C8FC /* ViewController.swift in Sources */,
 				4B5714951D1512F00083C8FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4BAB3F321D1DAE5B00949F4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KRAlertController;
+			targetProxy = 4BAB3F311D1DAE5B00949F4F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4B5714981D1512F00083C8FC /* Main.storyboard */ = {
@@ -250,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -289,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -300,8 +338,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = KRAlertControllerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -312,8 +351,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = KRAlertControllerDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
