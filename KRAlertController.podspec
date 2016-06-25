@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
 
   s.author       = { "krimpedance" => "krimpedance@gmail.com" }
   s.requires_arc = true
-  s.platform     = :ios, '8.0'
-  s.ios.deployment_target = '8.0'
+  s.platform     = :ios, '8.2'
+  s.ios.deployment_target = '8.2'
   
   s.source       = { :git => "https://github.com/krimpedance/KRAlertController.git", :tag => s.version.to_s }
   s.source_files = "KRAlertController/**/*.swift"
