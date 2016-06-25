@@ -7,27 +7,63 @@
 
 import UIKit
 
-
+/**
+ Constants indicating the type of alert to display.
+ 
+ - Alert:       An alert displayed modally for the app.
+ - ActionSheet: An action sheet displayed in the context of the view controller that presented it.
+ */
 public enum KRAlertControllerStyle {
     case Alert, ActionSheet
 }
 
+/**
+ Styles to apply to action buttons in an alert.
+ 
+ - Default:     Apply the default style to the action’s button.
+ - Cancel:      Apply a style that indicates the action cancels the operation and leaves things unchanged.
+ - Destructive: Apply a style that indicates the action might change or delete data.
+ */
 public enum KRAlertActionStyle: Int {
     case Default
     case Cancel
     case Destructive
 }
 
+/**
+ Styles to apply to labels in an alert
+ 
+ - Title:   Title label
+ - Message: Message label
+ */
 enum KRAlertLabelStyle {
     case Title, Message
 }
 
+/**
+ Type to apply to style of action buttons in an alert.
+ 
+ - Vertical:      Action buttons are displaying in line.
+ - VerticalTable: Action buttons are displaying in line with table view.
+ - Horizontal:      Action buttons are displaying in a row.
+ */
 enum KRButtonLayoutType {
     case Vertical
     case VerticalTable
     case Horizontal
 }
 
+/**
+  Constants indicating the color of alert to display. Alert icon is indicated by `icon` parameter.
+ 
+ - Normal:      Display black text. This is default.
+ - Success:     Display green text and success icon.
+ - Information:     Display blue text and information icon.
+ - Warning:     Display yellow text and warning icon.
+ - Error:     Display red text and error icon.
+ - Edit:     Display purple text and edit icon.
+ - Authorize:     Display purple text and authorize icon.
+ */
 public enum KRAlertControllerType {
     case Normal
     case Success(icon: Bool)
@@ -48,7 +84,7 @@ public enum KRAlertControllerType {
         case .Authorize: return UIColor ( red: 0.5961, green: 0.3373, blue: 0.6588, alpha: 1.0 )
         }
     }
-    
+
     var buttonBackgroundColor: UIColor {
         switch self {
         case .Normal: return UIColor ( red: 0.8902, green: 0.8902, blue: 0.898, alpha: 1.0 )
@@ -60,7 +96,7 @@ public enum KRAlertControllerType {
         case .Authorize: return UIColor ( red: 0.9333, green: 0.8549, blue: 0.949, alpha: 1.0 )
         }
     }
-    
+
     var iconColor: UIColor {
         switch self {
         case .Normal: return .blackColor()
@@ -72,7 +108,7 @@ public enum KRAlertControllerType {
         case .Authorize: return UIColor ( red: 0.9059, green: 0.8078, blue: 0.9294, alpha: 1.0 )
         }
     }
-    
+
     var isShowIcon: Bool {
         switch self {
         case let .Success(icon: isShow): return isShow
@@ -84,7 +120,7 @@ public enum KRAlertControllerType {
         default: return false
         }
     }
-    
+
     func getIconLayer(rect: CGRect) -> CAShapeLayer {
         let layer = CAShapeLayer()
         layer.frame = rect

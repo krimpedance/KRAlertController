@@ -7,10 +7,13 @@
 
 import UIKit
 
+/**
+ *  KRAlertButton
+ */
 class KRAlertButton: UIButton {
     var action: KRAlertAction!
     var type: KRAlertControllerType!
-    
+
     convenience init(frame: CGRect, action: KRAlertAction, type: KRAlertControllerType) {
         self.init(frame: frame)
         self.action = action
@@ -30,10 +33,11 @@ extension KRAlertButton {
         setTitleColor(type.textColor, forState: .Normal)
         setTitleColor(type.iconColor, forState: .Highlighted)
         backgroundColor = type.buttonBackgroundColor
-        
+
         switch action.style {
         case .Default:
-            titleLabel?.font = UIFont.systemFontOfSize(17)
+            let weight = action.isPreferred ? UIFontWeightBold : UIFontWeightRegular
+            titleLabel?.font = UIFont.systemFontOfSize(17, weight: weight)
         case .Destructive:
             titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightBold)
             setTitleColor(.redColor(), forState: .Normal)

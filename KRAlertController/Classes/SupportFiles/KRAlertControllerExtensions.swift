@@ -7,13 +7,16 @@
 
 import UIKit
 
+/**
+ *  UILabel extension for KRAlertController
+ */
 extension UILabel {
     func configureLayout(frame: CGRect, text: String?, controllerType: KRAlertControllerType, labelStyle: KRAlertLabelStyle) {
         numberOfLines = 0
         lineBreakMode = .ByWordWrapping
         textAlignment = .Center
         backgroundColor = .clearColor()
-        
+
         switch labelStyle {
         case .Title:
             textColor = controllerType.textColor
@@ -21,7 +24,7 @@ extension UILabel {
         case .Message:
             font = UIFont.systemFontOfSize(15)
         }
-        
+
         self.frame = frame
         self.text = text
         sizeToFit()
@@ -29,6 +32,10 @@ extension UILabel {
     }
 }
 
+
+/**
+ *  UIApplication extension for get visible view controller
+ */
 extension UIApplication {
     class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {

@@ -7,17 +7,21 @@
 
 import UIKit
 
+/**
+ *  A KRAlertBaseViewController object displays an alert message to the user. 
+ */
 class KRAlertBaseViewController: UIViewController {
 
     var style = KRAlertControllerStyle.Alert
     var contentView: KRAlertContentView?
     var statusBarHidden = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
     }
-    
+
+    // Prefers status bar hidden value is same visible view controller.
     override func prefersStatusBarHidden() -> Bool {
         return statusBarHidden
     }
@@ -37,28 +41,28 @@ extension KRAlertBaseViewController {
         view.backgroundColor = UIColor(white: 0, alpha: 0.4)
         view.alpha = 0.0
     }
-    
+
     func addContentView(contentView: KRAlertContentView) {
         self.contentView = contentView
         contentView.delegate = self
         var center = view.center
         center.y -= 50
         contentView.center = center
-        
+
         if style == .ActionSheet {
             var frame = contentView.frame
             frame.origin.y = view.bounds.height
             contentView.frame = frame
         }
-        
+
         view.addSubview(contentView)
     }
-    
+
     func showContent() {
         switch style {
         case .Alert:
             view.alpha = 1.0
-            
+
         case .ActionSheet:
             guard let contentView = contentView else { return }
             view.alpha = 1.0
@@ -67,12 +71,12 @@ extension KRAlertBaseViewController {
             contentView.frame = frame
         }
     }
-    
+
     func hideContent() {
         switch style {
         case .Alert:
             view.alpha = 0.0
-            
+
         case .ActionSheet:
             guard let contentView = contentView else { return }
             view.alpha = 0.0

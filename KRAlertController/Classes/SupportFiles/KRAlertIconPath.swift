@@ -8,6 +8,9 @@
 import UIKit
 
 
+/**
+ *  KRAlertIconPath
+ */
 struct KRAlertIconPath {
     static func getPath(type: KRAlertControllerType, size: CGSize) -> CGPath {
         let path: UIBezierPath
@@ -20,14 +23,18 @@ struct KRAlertIconPath {
         case .Edit: path = edit
         case .Authorize: path = authorize
         }
-        
+
         let defaultSize = CGSize(width: 200, height: 100)
         path.applyTransform(CGAffineTransformMakeScale(size.width/defaultSize.width, size.height/defaultSize.height))
-        
+
         return path.CGPath
     }
 }
 
+
+/**
+ *  Paths --------
+ */
 extension KRAlertIconPath {
     static var success: UIBezierPath {
         let path = UIBezierPath()
@@ -40,7 +47,7 @@ extension KRAlertIconPath {
         path.addLineToPoint(CGPoint(x: 86.822, y: 100))
         return path
     }
-    
+
     static var information: UIBezierPath {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 109.804, y: 9.804))
@@ -61,7 +68,7 @@ extension KRAlertIconPath {
         path.addLineToPoint(CGPoint(x: 107.843, y: 96.078))
         return path
     }
-    
+
     static var warning: UIBezierPath {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 98.889, y: 66.667))
@@ -100,7 +107,7 @@ extension KRAlertIconPath {
         path.addCurveToPoint(CGPoint(x: 110.714, y: 89.286), controlPoint1:CGPoint(x: 105.917, y: 78.571), controlPoint2:CGPoint(x: 110.714, y: 83.368))
         return path
     }
-    
+
     static var error: UIBezierPath {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 150, y: 15.021))
@@ -118,7 +125,7 @@ extension KRAlertIconPath {
         path.addLineToPoint(CGPoint(x: 150, y: 15.021))
         return path
     }
-    
+
     static var edit: UIBezierPath {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 147.86, y: 22.823))
@@ -146,7 +153,7 @@ extension KRAlertIconPath {
         path.addLineToPoint(CGPoint(x: 50, y: 100.001))
         return path
     }
-    
+
     static var authorize: UIBezierPath {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: 104.701, y: 86.517))

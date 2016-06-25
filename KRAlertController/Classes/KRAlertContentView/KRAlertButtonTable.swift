@@ -7,10 +7,13 @@
 
 import UIKit
 
+/**
+ *  KRAlertButtonTable is used at more than 5 actions.
+ */
 class KRAlertButtonTable: UITableView {
-    
+
     var buttons = [KRAlertButton]()
-    
+
     convenience init(frame: CGRect, buttons: [KRAlertButton]) {
         self.init(frame: frame)
         self.buttons = buttons
@@ -38,7 +41,7 @@ extension KRAlertButtonTable: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return buttons.count
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell()
         cell.backgroundColor = .clearColor()

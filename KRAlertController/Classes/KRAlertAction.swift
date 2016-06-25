@@ -7,27 +7,43 @@
 
 import UIKit
 
+/**
+ *  Action handler when user tapped some buttons.
+ *
+ *  - parameter KRAlertAction: Tapped button's action
+ *
+ *  - returns: Void
+ */
 public typealias KRAlertActionHandler = (action: KRAlertAction) -> ()
 
+/**
+ *  A KRAlertAction object represents an action that can be taken when tapping a button in an alert.
+ *  You use this class to configure information about a single action, including the title to display in the button, any styling information, and a handler to execute when the user taps the button.
+ *  After creating an alert action object, add it to a KRAlertController object before displaying the corresponding alert to the user.
+ */
 public struct KRAlertAction {
     let actionId: String = NSUUID().UUIDString
     let handler: KRAlertActionHandler?
-    
+
+    /// The text to use for the button title.
     public let title: String?
+    /// Additional styling information to apply to the button.
     public let style: KRAlertActionStyle
-    private var isPreferred: Bool = false
+    var isPreferred: Bool = false
     public var enabled: Bool = true
 
+    /**
+    Create and return an action with the specified title and behavior.
+
+     - param title:   The text to use for the button title.
+     - param style:   Additional styling information to apply to the button.
+     - param handler: A block to execute when the user selects the action.
+
+     - returns: A new alert action object.
+     */
     public init(title: String?, style: KRAlertActionStyle, handler: KRAlertActionHandler?) {
         self.title = title
         self.style = style
         self.handler = handler
     }
-}
-
-
-/**
- *  Actions -----------
- */
-extension KRAlertAction {
 }

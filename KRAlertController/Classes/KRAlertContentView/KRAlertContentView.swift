@@ -7,10 +7,16 @@
 
 import UIKit
 
+/**
+ *  This Method is called when tapping some buttons.
+ */
 protocol KRAlertViewDelegate {
     func didSelectActionButton(action: KRAlertAction)
 }
 
+/**
+ *  KRAlertContentView is contents that display.
+ */
 class KRAlertContentView: UIView {
 
     let titleLabel = UILabel()
@@ -64,14 +70,14 @@ private extension KRAlertContentView {
     var verticalMargin: CGFloat { return 10 }
     var horizontalMargin: CGFloat { return 10 }
     var marginBetweenContents: CGFloat { return 5 }
-    
+
     var contentWidth: CGFloat {
         return frame.width - horizontalMargin*2
     }
 
     var contentHeight: CGFloat {
         let labelsHeight = titleFrame.height + marginBetweenContents + messageFrame.height
-        
+
         var buttonsHeight: CGFloat
         switch buttonLayoutType {
         case .Vertical:
@@ -81,7 +87,7 @@ private extension KRAlertContentView {
         case .Horizontal:
             buttonsHeight = buttonFrame().height
         }
-        
+
         switch (textFields.count, actions.count) {
         case (0, 0): return labelsHeight
         case (_, 0): return labelsHeight + verticalMargin + textFieldViewFrame.height
@@ -105,7 +111,7 @@ private extension KRAlertContentView {
         let height = CGFloat(textFields.count) * (30 + 1)
         return CGRect(x: horizontalMargin, y: yPos, width: contentWidth, height: height)
     }
-    
+
     var buttonFrameYPosition: CGFloat {
         if textFields.count == 0 {
             return messageFrame.origin.y + messageFrame.height + verticalMargin*2
@@ -113,12 +119,12 @@ private extension KRAlertContentView {
             return textFieldViewFrame.origin.y + textFieldViewFrame.height + verticalMargin*2
         }
     }
-    
+
     var buttonTableFrame: CGRect {
         let yPos = buttonFrameYPosition
         return CGRect(x: horizontalMargin, y: yPos, width: contentWidth, height: 230)
     }
-    
+
     func buttonFrame(index index: Int = 0) -> CGRect {
         let yPos = buttonFrameYPosition
         var point = CGPoint(x: horizontalMargin, y: yPos)
@@ -154,7 +160,7 @@ private extension KRAlertContentView {
         }
 
         if type.isShowIcon { setIcon() }
-        
+
         switch buttonLayoutType {
         case .VerticalTable:
             setButtonTable()
@@ -170,7 +176,7 @@ private extension KRAlertContentView {
         frame.size.height = verticalMargin*2 + contentHeight
         self.frame = frame
     }
-    
+
     func setIcon() {
         let height = messageLabel.frame.origin.y + messageLabel.frame.height - titleLabel.frame.origin.y
         let origin = CGPoint(x: center.x - height, y: titleLabel.frame.origin.y)

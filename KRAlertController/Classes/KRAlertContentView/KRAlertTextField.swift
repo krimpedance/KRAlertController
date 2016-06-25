@@ -7,11 +7,14 @@
 
 import UIKit
 
+/**
+ *  KRAlerTextField
+ */
 class KRAlertTextField: UITextField {
 
     let padding: CGFloat = 5
     var type = KRAlertControllerType.Normal
-    
+
     convenience init(type: KRAlertControllerType) {
         self.init()
         self.type = type
@@ -30,7 +33,7 @@ extension KRAlertTextField {
         leftViewMode = .Always
         leftView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: padding))
     }
-    
+
     func resetLayout(frame: CGRect) {
         self.frame = frame
         layer.borderColor = UIColor.clearColor().CGColor
