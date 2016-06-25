@@ -8,29 +8,62 @@
 
 `KRAlertController` is a beautiful and easy-to-use alert controller for your iOS written by Swift 2.
 
+<img src="./Images/styles.png" height=300>
+
 ## DEMO
 To run the example project, clone the repo, and open `KRAlertControllerDemo.xcodeproj` from the DEMO directory.
 
-or [appetize.io]()
+or [appetize.io](https://appetize.io/app/jc2066a1jncndy2uet7wkp0ykg)
 
 ## Installation
 KRAlertController is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage). 
 To install it, simply add the following line to your Podfile or Cartfile:
 
-```ruby:
-# CocoaPods
+```ruby
+# Podfile
 pod "KRAlertController"
 ```
 
-```ruby:
-# Carthage
+```ruby
+# Cartfile
 github "Krimpedance/KRAlertController"
 ```
 
 ## Usage
 (see sample Xcode project in /Demo)
 
+**Mainly the same as UIAlertController.**
+
+At first, import `KRAlertController` in your swift file.
+
+Show simple alert.
+
 ```Swift
+let alert = KRAlertController(title: "Title", message: "message")
+let action = KRAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+alert.addAction(action)
+alert.show()
+```
+
+### Initializer
+```
+init(title: String?, message: String?)
+init(title: String?, message: String?, style: KRAlertControllerStyle)
+init(title: String?, message: String?, style: KRAlertControllerStyle, type: KRAlertControllerType)
+```
+
+### Alert types
+Alert icon is indicated by `icon` parameter.
+```
+enum KRAlertControllerType {
+  case Normal
+  case Success(icon: Bool)
+  case Information(icon: Bool)
+  case Warning(icon: Bool)
+  case Error(icon: Bool)
+  case Edit(icon: Bool)
+  case Authorize(icon: Bool)
+}
 ```
 
 ## Contributing to this project
