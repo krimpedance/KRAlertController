@@ -4,6 +4,8 @@
 //
 //  Copyright © 2016年 Krimpedance. All rights reserved.
 //
+//  swiftlint:disable function_parameter_count
+// swiftlint:disable legacy_constant
 
 import UIKit
 
@@ -37,8 +39,11 @@ class KRAlertContentView: UIView {
         case let count where count>5:
             return .VerticalTable
         case 2:
-            if style == .Alert { return .Horizontal }
-            else { return .Vertical }
+            if style == .Alert {
+                return .Horizontal
+            } else {
+                return .Vertical
+            }
         default:
             return .Vertical
         }
@@ -115,7 +120,7 @@ private extension KRAlertContentView {
     var buttonFrameYPosition: CGFloat {
         if textFields.count == 0 {
             return messageFrame.origin.y + messageFrame.height + verticalMargin*2
-        } else {                           
+        } else {
             return textFieldViewFrame.origin.y + textFieldViewFrame.height + verticalMargin*2
         }
     }
@@ -166,7 +171,7 @@ private extension KRAlertContentView {
             setButtonTable()
         default:
             let buttons = getActionButtons()
-            buttons.forEach{ addSubview($0) }
+            buttons.forEach { addSubview($0) }
         }
 
         autoresizingMask = [.FlexibleTopMargin, .FlexibleRightMargin, .FlexibleBottomMargin, .FlexibleLeftMargin]
@@ -200,7 +205,7 @@ private extension KRAlertContentView {
             }
         }
 
-        let buttons = sortedActions.enumerate().map{ index, action -> KRAlertButton in
+        let buttons = sortedActions.enumerate().map { index, action -> KRAlertButton in
             let button = KRAlertButton(frame: buttonFrame(index: index), action: action, type: type)
             button.addTarget(self, action: #selector(KRAlertContentView.actionButtonTapped(_:)), forControlEvents: .TouchUpInside)
             return button

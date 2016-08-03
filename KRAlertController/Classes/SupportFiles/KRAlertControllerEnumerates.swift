@@ -9,7 +9,7 @@ import UIKit
 
 /**
  Constants indicating the type of alert to display.
- 
+
  - Alert:       An alert displayed modally for the app.
  - ActionSheet: An action sheet displayed in the context of the view controller that presented it.
  */
@@ -19,7 +19,7 @@ public enum KRAlertControllerStyle {
 
 /**
  Styles to apply to action buttons in an alert.
- 
+
  - Default:     Apply the default style to the action’s button.
  - Cancel:      Apply a style that indicates the action cancels the operation and leaves things unchanged.
  - Destructive: Apply a style that indicates the action might change or delete data.
@@ -32,7 +32,7 @@ public enum KRAlertActionStyle: Int {
 
 /**
  Styles to apply to labels in an alert
- 
+
  - Title:   Title label
  - Message: Message label
  */
@@ -42,7 +42,7 @@ enum KRAlertLabelStyle {
 
 /**
  Type to apply to style of action buttons in an alert.
- 
+
  - Vertical:      Action buttons are displaying in line.
  - VerticalTable: Action buttons are displaying in line with table view.
  - Horizontal:      Action buttons are displaying in a row.
@@ -55,7 +55,7 @@ enum KRButtonLayoutType {
 
 /**
   Constants indicating the color of alert to display. Alert icon is indicated by `icon` parameter.
- 
+
  - Normal:      Display black text. This is default.
  - Success:     Display green text and success icon.
  - Information:     Display blue text and information icon.

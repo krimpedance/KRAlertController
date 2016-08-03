@@ -4,6 +4,7 @@
 //
 //  Copyright © 2016年 Krimpedance. All rights reserved.
 //
+// swiftlint:disable legacy_constant
 
 import UIKit
 

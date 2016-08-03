@@ -8,7 +8,7 @@
 import UIKit
 
 /**
- *  A KRAlertBaseViewController object displays an alert message to the user. 
+ *  A KRAlertBaseViewController object displays an alert message to the user.
  */
 class KRAlertBaseViewController: UIViewController {
 

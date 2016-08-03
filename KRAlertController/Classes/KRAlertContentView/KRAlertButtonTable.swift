@@ -46,7 +46,9 @@ extension KRAlertButtonTable: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell()
         cell.backgroundColor = .clearColor()
         cell.selectionStyle = .None
-        cell.contentView.subviews.forEach{ $0.removeFromSuperview() }
+        cell.contentView.subviews.forEach {
+            $0.removeFromSuperview()
+        }
         cell.addSubview(buttons[indexPath.row])
         return cell
     }

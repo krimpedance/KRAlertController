@@ -35,11 +35,9 @@ public struct KRAlertAction {
     /**
     Create and return an action with the specified title and behavior.
 
-     - param title:   The text to use for the button title.
-     - param style:   Additional styling information to apply to the button.
-     - param handler: A block to execute when the user selects the action.
-
-     - returns: A new alert action object.
+     - parameter title:   The text to use for the button title.
+     - parameter style:   Additional styling information to apply to the button.
+     - parameter handler: A block to execute when the user selects the action.
      */
     public init(title: String?, style: KRAlertActionStyle, handler: KRAlertActionHandler?) {
         self.title = title

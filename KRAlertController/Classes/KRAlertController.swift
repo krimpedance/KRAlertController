@@ -8,7 +8,7 @@ import UIKit
 
 /**
  *  KRAlertController is a beautiful and easy-to-use alert controller
- *  A KRAlertController object displays an alert message to the user. 
+ *  A KRAlertController object displays an alert message to the user.
  *  After configuring the alert controller with the actions and style you want, present it using the `show()` method.
  */
 public final class KRAlertController {
@@ -52,8 +52,6 @@ extension KRAlertController {
 
      - parameter title:   The title of the alert.
      - parameter message: Descriptive text that provides additional details about the reason for the alert.
-
-     - returns: An initialized alert controller object.
      */
     public convenience init(title: String?, message: String?) {
         self.init()
@@ -67,8 +65,6 @@ extension KRAlertController {
      - parameter title:   The title of the alert.
      - parameter message: Descriptive text that provides additional details about the reason for the alert.
      - parameter style:   Constants indicating the type of alert to display.
-
-     - returns: An initialized alert controller object.
      */
     public convenience init(title: String?, message: String?, style: KRAlertControllerStyle) {
         self.init(title: title, message: message)
@@ -77,13 +73,11 @@ extension KRAlertController {
 
     /**
      Creates and returns a controller for displaying an alert to the user.
-     
+
      - parameter title:   The title of the alert.
      - parameter message: Descriptive text that provides additional details about the reason for the alert.
      - parameter style:   Constants indicating the type of alert to display.
      - parameter type:    Constants indicating the color of alert to display
-
-     - returns: An initialized alert controller object.
      */
     public convenience init(title: String?, message: String?, style: KRAlertControllerStyle, type: KRAlertControllerType) {
         self.init(title: title, message: message, style: style)
@@ -103,7 +97,7 @@ extension KRAlertController {
      */
     public func addAction(action: KRAlertAction) {
         if actions.contains({ $0.style == .Cancel }) {
-            assert(action.style == .Cancel , "KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
+            assert(action.style == .Cancel, "KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
         }
         actions.append(action)
     }
