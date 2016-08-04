@@ -34,6 +34,26 @@ extension UILabel {
 
 
 /**
+ *  UITextField extension for KRAlertController
+ */
+extension UITextField {
+    func configureLayout(frame: CGRect, type: KRAlertControllerType) {
+        self.frame = frame
+        layer.borderColor = UIColor.clearColor().CGColor
+        layer.borderWidth = 0
+        font = UIFont.systemFontOfSize(15)
+        textColor = type.textColor
+        attributedPlaceholder = NSAttributedString(
+            string: placeholder ?? "",
+            attributes: [NSForegroundColorAttributeName: type.buttonBackgroundColor]
+        )
+        leftViewMode = .Always
+        leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 5))
+    }
+}
+
+
+/**
  *  UIApplication extension for get visible view controller
  */
 extension UIApplication {

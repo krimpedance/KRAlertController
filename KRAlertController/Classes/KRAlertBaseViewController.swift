@@ -4,6 +4,7 @@
 //
 //  Copyright © 2016年 Krimpedance. All rights reserved.
 //
+//  swiftlint:disable function_parameter_count
 
 import UIKit
 
@@ -11,23 +12,28 @@ import UIKit
  *  A KRAlertBaseViewController object displays an alert message to the user.
  */
 class KRAlertBaseViewController: UIViewController {
-
     var style = KRAlertControllerStyle.Alert
-    var contentView: KRAlertContentView?
+    var contentView: KRAlertContentView
     var statusBarHidden = false
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init(title: String?, message: String?, actions: [KRAlertAction], textFields: [UITextField], style: KRAlertControllerStyle, type: KRAlertControllerType) {
+        self.style = style
+        contentView = KRAlertContentView(title: title, message: message, actions: actions, textFields: textFields, style: style, type: type)
+        super.init(nibName: nil, bundle: nil)
         configureLayout()
     }
 
-    // Prefers status bar hidden value is same visible view controller.
-    override func prefersStatusBarHidden() -> Bool {
-        return statusBarHidden
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func prefersStatusBarHidden() -> Bool {
+        // Prefers status bar hidden value is same visible view controller.
+        return statusBarHidden
     }
 }
 
@@ -40,10 +46,10 @@ extension KRAlertBaseViewController {
         modalPresentationStyle = .OverCurrentContext
         view.backgroundColor = UIColor(white: 0, alpha: 0.4)
         view.alpha = 0.0
+        configureContentView()
     }
 
-    func addContentView(contentView: KRAlertContentView) {
-        self.contentView = contentView
+    func configureContentView() {
         contentView.delegate = self
         var center = view.center
         center.y -= 50
@@ -64,7 +70,6 @@ extension KRAlertBaseViewController {
             view.alpha = 1.0
 
         case .ActionSheet:
-            guard let contentView = contentView else { return }
             view.alpha = 1.0
             var frame = contentView.frame
             frame.origin.y = view.bounds.height - contentView.bounds.height - 20
@@ -78,7 +83,6 @@ extension KRAlertBaseViewController {
             view.alpha = 0.0
 
         case .ActionSheet:
-            guard let contentView = contentView else { return }
             view.alpha = 0.0
             var frame = contentView.frame
             frame.origin.y = view.bounds.height
@@ -97,7 +101,7 @@ extension KRAlertBaseViewController: KRAlertViewDelegate {
             self.hideContent()
         }) { _ in
             self.dismissViewControllerAnimated(false) {
-                action.handler?(action: action)
+                action.handler?(action: action, textFields: self.contentView.textFields)
             }
         }
     }

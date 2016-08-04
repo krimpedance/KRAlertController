@@ -20,17 +20,14 @@ protocol KRAlertViewDelegate {
  *  KRAlertContentView is contents that display.
  */
 class KRAlertContentView: UIView {
-
     let titleLabel = UILabel()
     let messageLabel = UILabel()
     let textFieldView = KRAlertTextFieldView()
 
-    var title: String?
-    var message: String?
     var style = KRAlertControllerStyle.Alert
     var type = KRAlertControllerType.Normal
     var actions = [KRAlertAction]()
-    var textFields = [KRAlertTextField]()
+    var textFields = [UITextField]()
 
     var delegate: KRAlertViewDelegate?
 
@@ -49,21 +46,23 @@ class KRAlertContentView: UIView {
         }
     }
 
-    convenience init(title: String?, message: String?, actions: [KRAlertAction], textFields: [KRAlertTextField], style: KRAlertControllerStyle, type: KRAlertControllerType) {
-        switch style {
-        case .Alert:
-            self.init(frame: CGRect(x: 0, y: 0, width: 270, height: 0))
-        case .ActionSheet:
-            let screenSize = UIScreen.mainScreen().bounds.size
-            self.init(frame: CGRect(x: 0, y: 0, width: screenSize.width-20*2, height: 0))
-        }
-        self.title = title
-        self.message = message
+    init(title: String?, message: String?, actions: [KRAlertAction], textFields: [UITextField], style: KRAlertControllerStyle, type: KRAlertControllerType) {
         self.actions = actions
         self.textFields = textFields
         self.style = style
         self.type = type
-        setContents()
+        switch style {
+        case .Alert:
+            super.init(frame: CGRect(x: 0, y: 0, width: 270, height: 0))
+        case .ActionSheet:
+            let screenSize = UIScreen.mainScreen().bounds.size
+            super.init(frame: CGRect(x: 0, y: 0, width: screenSize.width-20*2, height: 0))
+        }
+        setContents(title: title, message: message)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -154,7 +153,7 @@ private extension KRAlertContentView {
  *  Actions --------------------
  */
 private extension KRAlertContentView {
-    func setContents() {
+    func setContents(title title: String?, message: String?) {
         titleLabel.configureLayout(titleFrame, text: title, controllerType: type, labelStyle: .Title)
         addSubview(titleLabel)
         messageLabel.configureLayout(messageFrame, text: message, controllerType: type, labelStyle: .Message)

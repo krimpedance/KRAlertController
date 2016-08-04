@@ -13,7 +13,6 @@ import UIKit
 class KRAlertTextFieldView: UIView {
     let textFieldHeight: CGFloat = 30
     let borderViewHeight: CGFloat = 1
-    var type = KRAlertControllerType.Normal
 }
 
 
@@ -21,10 +20,8 @@ class KRAlertTextFieldView: UIView {
  *  Actions -------------
  */
 extension KRAlertTextFieldView {
-    func configureLayout(frame: CGRect, textFields: [KRAlertTextField], controllerType: KRAlertControllerType) {
+    func configureLayout(frame: CGRect, textFields: [UITextField], controllerType type: KRAlertControllerType) {
         self.frame = frame
-
-        type = controllerType
         backgroundColor = .clearColor()
         layer.borderWidth = 1
         layer.borderColor = type.buttonBackgroundColor.CGColor
@@ -34,18 +31,27 @@ extension KRAlertTextFieldView {
                 origin: CGPoint(x: 0, y: CGFloat(index)*(textFieldHeight+borderViewHeight)),
                 size: CGSize(width: frame.width, height: textFieldHeight)
             )
-            textField.resetLayout(frame)
+            textField.configureLayout(frame, type: type)
+            textField.delegate = textField.delegate ?? self
             addSubview(textField)
 
             if textFields.count == index+1 { return }
-            let borderView = createBorderView(CGPoint(x: 0, y: frame.origin.y+frame.height))
+            let point = CGPoint(x: 0, y: frame.origin.y+frame.height)
+            let size = CGSize(width: bounds.width, height: 1)
+            let borderView = UIView(frame: CGRect(origin: point, size: size))
+            borderView.backgroundColor = type.buttonBackgroundColor
             addSubview(borderView)
         }
     }
+}
 
-    func createBorderView(point: CGPoint) -> UIView {
-        let view = UIView(frame: CGRect(origin: point, size: CGSize(width: bounds.width, height: 1)))
-        view.backgroundColor = type.buttonBackgroundColor
-        return view
+
+/**
+ *  UITextField delegate --------------------
+ */
+extension KRAlertTextFieldView: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
     }
 }

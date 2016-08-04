@@ -11,7 +11,6 @@ import UIKit
  *  KRAlertButtonTable is used at more than 5 actions.
  */
 class KRAlertButtonTable: UITableView {
-
     var buttons = [KRAlertButton]()
 
     convenience init(frame: CGRect, buttons: [KRAlertButton]) {

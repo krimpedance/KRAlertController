@@ -18,7 +18,6 @@
 		4BA7555D1D149DD9007B06A5 /* KRAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA755521D149DD9007B06A5 /* KRAlertController.framework */; };
 		4BA755621D149DD9007B06A5 /* KRAlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA755611D149DD9007B06A5 /* KRAlertControllerTests.swift */; };
 		4BAB3F2A1D1D2C4200949F4F /* KRAlertTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB3F291D1D2C4200949F4F /* KRAlertTextFieldView.swift */; };
-		4BAB3F2C1D1D9BF700949F4F /* KRAlertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB3F2B1D1D9BF700949F4F /* KRAlertTextField.swift */; };
 		4BB4B9561D15A30E004570F1 /* KRAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4B9551D15A30E004570F1 /* KRAlertAction.swift */; };
 		4BF2395C1D1A428A0076415B /* KRAlertControllerEnumerates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2395B1D1A428A0076415B /* KRAlertControllerEnumerates.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +47,6 @@
 		4BA755611D149DD9007B06A5 /* KRAlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRAlertControllerTests.swift; sourceTree = "<group>"; };
 		4BA755631D149DD9007B06A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BAB3F291D1D2C4200949F4F /* KRAlertTextFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertTextFieldView.swift; sourceTree = "<group>"; };
-		4BAB3F2B1D1D9BF700949F4F /* KRAlertTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertTextField.swift; sourceTree = "<group>"; };
 		4BB4B9551D15A30E004570F1 /* KRAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertAction.swift; sourceTree = "<group>"; };
 		4BF2395B1D1A428A0076415B /* KRAlertControllerEnumerates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KRAlertControllerEnumerates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,7 +88,6 @@
 				4B7576F01D1C33D3003FF258 /* KRAlertButton.swift */,
 				4B7576F11D1C33D3003FF258 /* KRAlertButtonTable.swift */,
 				4B7576F21D1C33D3003FF258 /* KRAlertContentView.swift */,
-				4BAB3F2B1D1D9BF700949F4F /* KRAlertTextField.swift */,
 				4BAB3F291D1D2C4200949F4F /* KRAlertTextFieldView.swift */,
 			);
 			path = KRAlertContentView;
@@ -274,7 +271,6 @@
 				4B7576F41D1C33D3003FF258 /* KRAlertButtonTable.swift in Sources */,
 				4BF2395C1D1A428A0076415B /* KRAlertControllerEnumerates.swift in Sources */,
 				4B7576F51D1C33D3003FF258 /* KRAlertContentView.swift in Sources */,
-				4BAB3F2C1D1D9BF700949F4F /* KRAlertTextField.swift in Sources */,
 				4B7576F31D1C33D3003FF258 /* KRAlertButton.swift in Sources */,
 				4BAB3F2A1D1D2C4200949F4F /* KRAlertTextFieldView.swift in Sources */,
 				4B5A5EA71D19140B00041FA5 /* KRAlertBaseViewController.swift in Sources */,

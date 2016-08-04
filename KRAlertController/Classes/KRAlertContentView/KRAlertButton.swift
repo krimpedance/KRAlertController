@@ -11,14 +11,18 @@ import UIKit
  *  KRAlertButton
  */
 class KRAlertButton: UIButton {
-    var action: KRAlertAction!
-    var type: KRAlertControllerType!
+    var action: KRAlertAction
+    var type: KRAlertControllerType
 
-    convenience init(frame: CGRect, action: KRAlertAction, type: KRAlertControllerType) {
-        self.init(frame: frame)
+    init(frame: CGRect, action: KRAlertAction, type: KRAlertControllerType) {
         self.action = action
         self.type = type
+        super.init(frame: frame)
         setup()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -34,15 +38,7 @@ extension KRAlertButton {
         setTitleColor(type.iconColor, forState: .Highlighted)
         backgroundColor = type.buttonBackgroundColor
 
-        switch action.style {
-        case .Default:
-            let weight = action.isPreferred ? UIFontWeightBold : UIFontWeightRegular
-            titleLabel?.font = UIFont.systemFontOfSize(17, weight: weight)
-        case .Destructive:
-            titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightBold)
-            setTitleColor(.redColor(), forState: .Normal)
-        case .Cancel:
-            titleLabel?.font = UIFont.systemFontOfSize(17, weight: UIFontWeightBold)
-        }
+        let weight = action.isPreferred ? UIFontWeightBold : UIFontWeightRegular
+        titleLabel?.font = UIFont.systemFontOfSize(17, weight: weight)
     }
 }

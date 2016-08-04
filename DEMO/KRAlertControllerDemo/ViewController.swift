@@ -31,25 +31,26 @@ class ViewController: UIViewController {
  *  Actions -------------
  */
 extension ViewController {
-    func getAlertText(type: KRAlertControllerType, style: KRAlertControllerStyle) -> (title: String, message: String) {
-        switch type {
-        case .Normal:
+    func getAlertText(index: Int, style: KRAlertControllerStyle) -> (title: String, message: String) {
+        switch index {
+        case 1:
             return ("Normal", "This is .Normal alert\nThis is default.")
-        case .Success:
+        case 2:
             return ("Success", "This is .Success alert.")
-        case .Information:
+        case 3:
             return ("Information", "This is .Information alert.")
-        case .Warning:
+        case 4:
             return ("Warning", "This is .Warning alert.")
-        case .Error:
+        case 5:
             return ("Error", "This is .Error alert.")
-        case .Edit:
+        case 6:
             if style == .Alert { return ("Edit", "This is .Edit alert.\nThis alert added single text field.") }
             else { return ("Edit", "This is .Edit alert.\nText fields can only use .Alert style.") }
-        case .Authorize:                                
+        case 7:
             if style == .Alert { return ("Authorize", "This is .Authorize alert.\nThis alert added two text field.") }
             else { return ("Edit", "This is .Authorize alert.\nText fields can only use .Alert style.") }
-                                                        
+        default:
+            return ("", "")
         }                                                  
     }
 }
@@ -62,46 +63,57 @@ extension ViewController {
     @IBAction func showAlertButtonTapped(sender: UIButton) {
         let isDisplayIcon = (displayIconControl.selectedSegmentIndex==0) ? true : false
         let alertStyle: KRAlertControllerStyle = (alertStyleControl.selectedSegmentIndex==0) ? .Alert : .ActionSheet
-        let type: KRAlertControllerType
-        switch sender.tag {
-        case 1: type = .Normal
-        case 2: type = .Success(icon: isDisplayIcon)
-        case 3: type = .Information(icon: isDisplayIcon)
-        case 4: type = .Warning(icon: isDisplayIcon)
-        case 5: type = .Error(icon: isDisplayIcon)
-        case 6: type = .Edit(icon: isDisplayIcon)
-        case 7: type = .Authorize(icon: isDisplayIcon)
+        let alertText = getAlertText(sender.tag, style: alertStyle)
+
+        var alert: KRAlertController
+        switch buttonNumControl.selectedSegmentIndex {
+        case 0:
+            alert = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle)
+                .addAction("OK")
+            
+        case 1:
+            alert = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle)
+                .addAction("Button1")
+                .addCancel()
+            
+        case 2:
+            alert = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle)
+                .addAction("Button1")
+                .addAction("Button2")
+                .addCancel()
+            
         default: return
         }
-        let alertText = getAlertText(type, style: alertStyle)
-
-        let alert  = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle, type: type)
-        (0...buttonNumControl.selectedSegmentIndex).forEach {
-            let action = KRAlertAction(title: "Button\($0)", style: .Default, handler: nil)
-            alert.addAction(action)
-        }
-        let action = KRAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        alert.addAction(action)
         
-        defer { alert.show() }
+        defer {
+            switch sender.tag {
+            case 1: alert.show()
+            case 2: alert.showSuccess(icon: isDisplayIcon)
+            case 3: alert.showInformation(icon: isDisplayIcon)
+            case 4: alert.showWarning(icon: isDisplayIcon)
+            case 5: alert.showError(icon: isDisplayIcon)
+            case 6: alert.showEdit(icon: isDisplayIcon)
+            case 7: alert.showAuthorize(icon: isDisplayIcon)
+            default: break
+            }
+        }
         
         if alertStyle == .ActionSheet { return }
         
-        switch type {
-        case .Edit:
-            alert.addTextFieldWithConfigurationHandler({ (textField) in
+        switch sender.tag {
+        case 6:
+            alert = alert.addTextField({ (textField) in
                 textField.placeholder = "Your name"
             })
-        case .Authorize:
-            alert.addTextFieldWithConfigurationHandler({ (textField) in
-                textField.placeholder = "Email"
-            })
-            alert.addTextFieldWithConfigurationHandler({ (textField) in
-                textField.placeholder = "Password"
-                textField.secureTextEntry = true
-            })
+        case 7:
+            alert = alert .addTextField({ (textField) in
+                    textField.placeholder = "Email"
+                })
+                .addTextField({ (textField) in
+                    textField.placeholder = "Password"
+                    textField.secureTextEntry = true
+                })
         default: break
         }
     }
-    
 }

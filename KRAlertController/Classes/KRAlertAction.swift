@@ -14,7 +14,7 @@ import UIKit
  *
  *  - returns: Void
  */
-public typealias KRAlertActionHandler = (action: KRAlertAction) -> ()
+public typealias KRAlertActionHandler = (action: KRAlertAction, textFields: [UITextField]) -> ()
 
 /**
  *  A KRAlertAction object represents an action that can be taken when tapping a button in an alert.
@@ -29,7 +29,7 @@ public struct KRAlertAction {
     public let title: String?
     /// Additional styling information to apply to the button.
     public let style: KRAlertActionStyle
-    var isPreferred: Bool = false
+    let isPreferred: Bool
     public var enabled: Bool = true
 
     /**
@@ -37,11 +37,13 @@ public struct KRAlertAction {
 
      - parameter title:   The text to use for the button title.
      - parameter style:   Additional styling information to apply to the button.
+     - parameter isPreferred: When true, Action title become preferred style.
      - parameter handler: A block to execute when the user selects the action.
      */
-    public init(title: String?, style: KRAlertActionStyle, handler: KRAlertActionHandler?) {
+    init(title: String?, style: KRAlertActionStyle, isPreferred: Bool, handler: KRAlertActionHandler?) {
         self.title = title
         self.style = style
         self.handler = handler
+        self.isPreferred = isPreferred
     }
 }
