@@ -39,30 +39,38 @@ At first, import `KRAlertController` in your swift file.
 Show simple alert.
 
 ```Swift
-let alert = KRAlertController(title: "Title", message: "message")
-let action = KRAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-alert.addAction(action)
-alert.show()
+KRAlertController(title: "Title", message: "message")
+  .addCancel()
+  .addAction("OK") { action, textFields in
+    print("OK")
+  }
+  .show()
 ```
 
 ### Initializer
-```
-init(title: String?, message: String?)
-init(title: String?, message: String?, style: KRAlertControllerStyle)
-init(title: String?, message: String?, style: KRAlertControllerStyle, type: KRAlertControllerType)
+```Swift
+init(title: String?, message: String?, style: KRAlertControllerStyle = .Alert)
 ```
 
 ### Alert types
-Alert icon is indicated by `icon` parameter.
+There is 7 kinds of alert.
+`icon` pass true to display glaph icon; otherwise, pass false.
+Default view controller to display alert is visible view controller of key window.
+```Swift
+func show(presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil)
+func showSuccess(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil)
+func showInformation(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil)
+func showWarning(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil)
+func showError(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil)
+func showEdit(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil)
+func showAuthorize(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil)
 ```
-enum KRAlertControllerType {
-  case Normal
-  case Success(icon: Bool)
-  case Information(icon: Bool)
-  case Warning(icon: Bool)
-  case Error(icon: Bool)
-  case Edit(icon: Bool)
-  case Authorize(icon: Bool)
+
+```Swift
+// Example
+alert.showSuccess(true)
+alert.showWarning(true, presentingVC: self, animated: false) {
+  print("Showed warning alert!")
 }
 ```
 
@@ -70,7 +78,8 @@ enum KRAlertControllerType {
 I'm seeking bug reports and feature requests.
 
 ## Release Note
-- 0.1.0 : First release
+- 1.0.0 : First release. The structure is changed substantially to use it easy.
+- 0.1.0 : Beta release.
 
 ## License
 KRAlertController is available under the MIT license. See the LICENSE file for more info.

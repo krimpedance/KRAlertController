@@ -64,7 +64,7 @@ enum KRButtonLayoutType {
  - Edit:     Display purple text and edit icon.
  - Authorize:     Display purple text and authorize icon.
  */
-public enum KRAlertControllerType {
+enum KRAlertControllerType {
     case Normal
     case Success(icon: Bool)
     case Information(icon: Bool)
