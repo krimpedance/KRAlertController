@@ -10,6 +10,22 @@
 
 <img src="./Images/styles.png" height=300>
 
+## Requirements
+#### ver. 2.\* 
+- iOS 9.0+
+- Xcode 8.0+
+- Swift 3.\*
+
+#### ver. 1.\*(1.1.0 and over) (current version)
+- iOS 8.0+
+- Xcode 8.0+
+- Swift 2.3.\*
+
+#### ver. 1.\*(under 1.1.0)
+- iOS 8.0+
+- Xcode 7.\*
+- Swift 2.2.\*
+
 ## DEMO
 To run the example project, clone the repo, and open `KRAlertControllerDemo.xcodeproj` from the DEMO directory.
 
@@ -78,6 +94,7 @@ alert.showWarning(true, presentingVC: self, animated: false) {
 I'm seeking bug reports and feature requests.
 
 ## Release Note
+- 1.1.0 : Supported Swift2.3.
 - 1.0.0 : First release. The structure is changed substantially to use it easy.
 - 0.1.0 : Beta release.
 
