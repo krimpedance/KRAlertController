@@ -11,12 +11,12 @@
 <img src="./Images/styles.png" height=300>
 
 ## Requirements
-#### ver. 2.\* 
+#### ver. 2.\* (current version)
 - iOS 9.0+
 - Xcode 8.0+
 - Swift 3.\*
 
-#### ver. 1.\*(1.1.0 and over) (current version)
+#### ver. 1.\*(1.1.0 and over)
 - iOS 8.0+
 - Xcode 8.0+
 - Swift 2.3.\*
@@ -94,9 +94,7 @@ alert.showWarning(true, presentingVC: self, animated: false) {
 I'm seeking bug reports and feature requests.
 
 ## Release Note
-- 1.1.0 : Supported Swift2.3.
-- 1.0.0 : First release. The structure is changed substantially to use it easy.
-- 0.1.0 : Beta release.
+- 2.0.0 : Supported Swift3
 
 ## License
 KRAlertController is available under the MIT license. See the LICENSE file for more info.
