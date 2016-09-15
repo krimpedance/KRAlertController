@@ -17,11 +17,11 @@ public final class KRAlertController {
     /// Alert message
     public var message: String?
     /// Alert style (read only)
-    public private(set) var style = KRAlertControllerStyle.Alert
+    public fileprivate(set) var style = KRAlertControllerStyle.alert
     /// The actions that the user can take in response to the alert or action sheet. (read-only)
-    public private(set) var actions = [KRAlertAction]()
+    public fileprivate(set) var actions = [KRAlertAction]()
     /// The array of text fields displayed by the alert. (read-only)
-    public private(set) var textFields = [UITextField]()
+    public fileprivate(set) var textFields = [UITextField]()
 
     /**
      Creates and returns a controller for displaying an alert to the user. Default alert type is `.Normal`.
@@ -30,7 +30,7 @@ public final class KRAlertController {
      - parameter message: Descriptive text that provides additional details about the reason for the alert.
      - parameter style:   Constants indicating the type of alert to display.
      */
-    public convenience init(title: String?, message: String?, style: KRAlertControllerStyle = .Alert) {
+    public convenience init(title: String?, message: String?, style: KRAlertControllerStyle = .alert) {
         self.init()
         self.title = title
         self.message = message
@@ -52,8 +52,8 @@ extension KRAlertController {
      - returns: KRAlertController object.
      */
     public func addCancel(title: String="Cancel", handler: KRAlertActionHandler? = nil) -> KRAlertController {
-        let action = KRAlertAction(title: title, style: .Cancel, isPreferred: true, handler: handler)
-        if actions.contains({ $0.style == .Cancel }) {
+        let action = KRAlertAction(title: title, style: .cancel, isPreferred: true, handler: handler)
+        if actions.contains(where: { $0.style == .cancel }) {
             fatalError("KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
         }
         actions.append(action)
@@ -71,8 +71,8 @@ extension KRAlertController {
      - returns: KRAlertController object.
      */
     public func addDestructive(title: String, isPreferred: Bool = false, handler: KRAlertActionHandler? = nil) -> KRAlertController {
-        let action = KRAlertAction(title: title, style: .Destructive, isPreferred: isPreferred, handler: handler)
-        if actions.contains({ $0.style == .Cancel }) {
+        let action = KRAlertAction(title: title, style: .destructive, isPreferred: isPreferred, handler: handler)
+        if actions.contains(where: { $0.style == .cancel }) {
             fatalError("KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
         }
         actions.append(action)
@@ -90,9 +90,9 @@ extension KRAlertController {
      - returns: KRAlertController object.
      */
     public func addAction(title: String, isPreferred: Bool = false, handler: KRAlertActionHandler? = nil) -> KRAlertController {
-        let action = KRAlertAction(title: title, style: .Default, isPreferred: isPreferred, handler: handler)
-        if actions.contains({ $0.style == .Cancel }) {
-            assert(action.style == .Cancel, "KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
+        let action = KRAlertAction(title: title, style: .default, isPreferred: isPreferred, handler: handler)
+        if actions.contains(where: { $0.style == .cancel }) {
+            assert(action.style == .cancel, "KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
         }
         actions.append(action)
 
@@ -112,12 +112,12 @@ extension KRAlertController {
 
      - returns: KRAlertController object.
      */
-    public func addTextField(configurationHandler: ((textField: UITextField) -> Void)? = nil) -> KRAlertController {
-        assert(style == .Alert, "Text fields can only be added to an alert controller of style KRAlertControllerStyle.Alert")
+    public func addTextField(_ configurationHandler: ((_ textField: UITextField) -> Void)? = nil) -> KRAlertController {
+        assert(style == .alert, "Text fields can only be added to an alert controller of style KRAlertControllerStyle.Alert")
         assert(textFields.count < 3, "KRAlertController can add text fields up to 3")
 
         let textField = UITextField()
-        configurationHandler?(textField: textField)
+        configurationHandler?(textField)
         textFields.append(textField)
 
         return self
@@ -140,7 +140,7 @@ extension KRAlertController {
      - returns: No return value
      */
     public func show(presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
-        show(.Normal, presentingVC: presentingVC, animated: animated, completion: completion)
+        show(.normal, presentingVC: presentingVC, animated: animated, completion: completion)
     }
 
     /**
@@ -154,8 +154,8 @@ extension KRAlertController {
 
      - returns: No return value
      */
-    public func showSuccess(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
-        show(.Success(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
+    public func showSuccess(icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
+        show(.success(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
     }
 
     /**
@@ -169,8 +169,8 @@ extension KRAlertController {
 
      - returns: No return value
      */
-    public func showInformation(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
-        show(.Information(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
+    public func showInformation(icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
+        show(.information(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
     }
 
     /**
@@ -184,8 +184,8 @@ extension KRAlertController {
 
      - returns: No return value
      */
-    public func showWarning(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
-        show(.Warning(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
+    public func showWarning(icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
+        show(.warning(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
     }
 
     /**
@@ -199,8 +199,8 @@ extension KRAlertController {
 
      - returns: No return value
      */
-    public func showError(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
-        show(.Error(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
+    public func showError(icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
+        show(.error(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
     }
 
     /**
@@ -214,8 +214,8 @@ extension KRAlertController {
 
      - returns: No return value
      */
-    public func showEdit(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
-        show(.Edit(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
+    public func showEdit(icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
+        show(.edit(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
     }
 
     /**
@@ -229,8 +229,8 @@ extension KRAlertController {
 
      - returns: No return value
      */
-    public func showAuthorize(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
-        show(.Authorize(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
+    public func showAuthorize(icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
+        show(.authorize(icon: icon), presentingVC: presentingVC, animated: animated, completion: completion)
     }
 }
 
@@ -239,23 +239,23 @@ extension KRAlertController {
  *  Private actions ------------
  */
 extension KRAlertController {
-    private func show(type: KRAlertControllerType, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
+    fileprivate func show(_ type: KRAlertControllerType, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil) {
         guard let vc = presentingVC ?? UIApplication.topViewController() else {
             print("View controller to present alert controller isn't found!")
             return
         }
 
         let alertVC = makeAlertViewController(type)
-        alertVC.statusBarHidden = vc.prefersStatusBarHidden()
+        alertVC.statusBarHidden = vc.prefersStatusBarHidden
 
-        vc.presentViewController(alertVC, animated: false) {
-            UIView.animateWithDuration(0.2) {
+        vc.present(alertVC, animated: false) {
+            UIView.animate(withDuration: 0.2, animations: {
                 alertVC.showContent()
-            }
+            })
         }
     }
 
-    private func makeAlertViewController(type: KRAlertControllerType) -> KRAlertBaseViewController {
+    fileprivate func makeAlertViewController(_ type: KRAlertControllerType) -> KRAlertBaseViewController {
         let baseVC = KRAlertBaseViewController(title: title, message: message, actions: actions, textFields: textFields, style: style, type: type)
         return baseVC
     }

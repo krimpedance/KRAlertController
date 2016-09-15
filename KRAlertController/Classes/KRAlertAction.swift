@@ -14,7 +14,7 @@ import UIKit
  *
  *  - returns: Void
  */
-public typealias KRAlertActionHandler = (action: KRAlertAction, textFields: [UITextField]) -> ()
+public typealias KRAlertActionHandler = (_ action: KRAlertAction, _ textFields: [UITextField]) -> ()
 
 /**
  *  A KRAlertAction object represents an action that can be taken when tapping a button in an alert.
@@ -22,7 +22,7 @@ public typealias KRAlertActionHandler = (action: KRAlertAction, textFields: [UIT
  *  After creating an alert action object, add it to a KRAlertController object before displaying the corresponding alert to the user.
  */
 public struct KRAlertAction {
-    let actionId: String = NSUUID().UUIDString
+    let actionId: String = UUID().uuidString
     let handler: KRAlertActionHandler?
 
     /// The text to use for the button title.

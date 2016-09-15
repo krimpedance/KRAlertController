@@ -33,12 +33,12 @@ class KRAlertButton: UIButton {
 extension KRAlertButton {
     func setup() {
         layer.cornerRadius = 5.0
-        setTitle(action.title, forState: .Normal)
-        setTitleColor(type.textColor, forState: .Normal)
-        setTitleColor(type.iconColor, forState: .Highlighted)
+        setTitle(action.title, for: UIControlState())
+        setTitleColor(type.textColor, for: UIControlState())
+        setTitleColor(type.iconColor, for: .highlighted)
         backgroundColor = type.buttonBackgroundColor
 
         let weight = action.isPreferred ? UIFontWeightBold : UIFontWeightRegular
-        titleLabel?.font = UIFont.systemFontOfSize(17, weight: weight)
+        titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: weight)
     }
 }

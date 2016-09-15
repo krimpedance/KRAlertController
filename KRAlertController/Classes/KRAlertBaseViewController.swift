@@ -12,7 +12,7 @@ import UIKit
  *  A KRAlertBaseViewController object displays an alert message to the user.
  */
 class KRAlertBaseViewController: UIViewController {
-    var style = KRAlertControllerStyle.Alert
+    var style = KRAlertControllerStyle.alert
     var contentView: KRAlertContentView
     var statusBarHidden = false
 
@@ -31,7 +31,7 @@ class KRAlertBaseViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden: Bool {
         // Prefers status bar hidden value is same visible view controller.
         return statusBarHidden
     }
@@ -43,7 +43,7 @@ class KRAlertBaseViewController: UIViewController {
  */
 extension KRAlertBaseViewController {
     func configureLayout() {
-        modalPresentationStyle = .OverCurrentContext
+        modalPresentationStyle = .overCurrentContext
         view.backgroundColor = UIColor(white: 0, alpha: 0.4)
         view.alpha = 0.0
         configureContentView()
@@ -55,7 +55,7 @@ extension KRAlertBaseViewController {
         center.y -= 50
         contentView.center = center
 
-        if style == .ActionSheet {
+        if style == .actionSheet {
             var frame = contentView.frame
             frame.origin.y = view.bounds.height
             contentView.frame = frame
@@ -66,10 +66,10 @@ extension KRAlertBaseViewController {
 
     func showContent() {
         switch style {
-        case .Alert:
+        case .alert:
             view.alpha = 1.0
 
-        case .ActionSheet:
+        case .actionSheet:
             view.alpha = 1.0
             var frame = contentView.frame
             frame.origin.y = view.bounds.height - contentView.bounds.height - 20
@@ -79,10 +79,10 @@ extension KRAlertBaseViewController {
 
     func hideContent() {
         switch style {
-        case .Alert:
+        case .alert:
             view.alpha = 0.0
 
-        case .ActionSheet:
+        case .actionSheet:
             view.alpha = 0.0
             var frame = contentView.frame
             frame.origin.y = view.bounds.height
@@ -97,12 +97,12 @@ extension KRAlertBaseViewController {
  */
 extension KRAlertBaseViewController: KRAlertViewDelegate {
     func didSelectActionButton(action: KRAlertAction) {
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             self.hideContent()
-        }) { _ in
-            self.dismissViewControllerAnimated(false) {
-                action.handler?(action: action, textFields: self.contentView.textFields)
+        }, completion: { _ in
+            self.dismiss(animated: false) {
+                action.handler?(action, self.contentView.textFields)
             }
-        }
+        })
     }
 }

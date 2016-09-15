@@ -20,18 +20,18 @@ class KRAlertTextFieldView: UIView {
  *  Actions -------------
  */
 extension KRAlertTextFieldView {
-    func configureLayout(frame: CGRect, textFields: [UITextField], controllerType type: KRAlertControllerType) {
+    func configureLayout(_ frame: CGRect, textFields: [UITextField], controllerType type: KRAlertControllerType) {
         self.frame = frame
-        backgroundColor = .clearColor()
+        backgroundColor = .clear
         layer.borderWidth = 1
-        layer.borderColor = type.buttonBackgroundColor.CGColor
+        layer.borderColor = type.buttonBackgroundColor.cgColor
 
-        textFields.enumerate().forEach { index, textField in
+        textFields.enumerated().forEach { index, textField in
             let frame = CGRect(
                 origin: CGPoint(x: 0, y: CGFloat(index)*(textFieldHeight+borderViewHeight)),
                 size: CGSize(width: frame.width, height: textFieldHeight)
             )
-            textField.configureLayout(frame, type: type)
+            textField.configureLayout(frame: frame, type: type)
             textField.delegate = textField.delegate ?? self
             addSubview(textField)
 
@@ -50,7 +50,7 @@ extension KRAlertTextFieldView {
  *  UITextField delegate --------------------
  */
 extension KRAlertTextFieldView: UITextFieldDelegate {
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return true
     }

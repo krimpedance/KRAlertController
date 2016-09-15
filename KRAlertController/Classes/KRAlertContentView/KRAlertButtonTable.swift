@@ -26,8 +26,8 @@ class KRAlertButtonTable: UITableView {
  */
 extension KRAlertButtonTable {
     func setup() {
-        backgroundColor = .clearColor()
-        separatorStyle = .None
+        backgroundColor = .clear
+        separatorStyle = .none
         dataSource = self
     }
 }
@@ -37,18 +37,18 @@ extension KRAlertButtonTable {
  *  UITableView data source --------------------
  */
 extension KRAlertButtonTable: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return buttons.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell()
-        cell.backgroundColor = .clearColor()
-        cell.selectionStyle = .None
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell()
+        cell.backgroundColor = .clear
+        cell.selectionStyle = .none
         cell.contentView.subviews.forEach {
             $0.removeFromSuperview()
         }
-        cell.addSubview(buttons[indexPath.row])
+        cell.addSubview(buttons[(indexPath as NSIndexPath).row])
         return cell
     }
 }
@@ -58,7 +58,7 @@ extension KRAlertButtonTable: UITableViewDataSource {
  *  UITableView data source --------------------
  */
 extension KRAlertButtonTable: UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 35
     }
 }

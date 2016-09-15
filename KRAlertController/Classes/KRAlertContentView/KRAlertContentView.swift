@@ -24,8 +24,8 @@ class KRAlertContentView: UIView {
     let messageLabel = UILabel()
     let textFieldView = KRAlertTextFieldView()
 
-    var style = KRAlertControllerStyle.Alert
-    var type = KRAlertControllerType.Normal
+    var style = KRAlertControllerStyle.alert
+    var type = KRAlertControllerType.normal
     var actions = [KRAlertAction]()
     var textFields = [UITextField]()
 
@@ -34,15 +34,15 @@ class KRAlertContentView: UIView {
     var buttonLayoutType: KRButtonLayoutType {
         switch actions.count {
         case let count where count>5:
-            return .VerticalTable
+            return .verticalTable
         case 2:
-            if style == .Alert {
-                return .Horizontal
+            if style == .alert {
+                return .horizontal
             } else {
-                return .Vertical
+                return .vertical
             }
         default:
-            return .Vertical
+            return .vertical
         }
     }
 
@@ -52,10 +52,10 @@ class KRAlertContentView: UIView {
         self.style = style
         self.type = type
         switch style {
-        case .Alert:
+        case .alert:
             super.init(frame: CGRect(x: 0, y: 0, width: 270, height: 0))
-        case .ActionSheet:
-            let screenSize = UIScreen.mainScreen().bounds.size
+        case .actionSheet:
+            let screenSize = UIScreen.main.bounds.size
             super.init(frame: CGRect(x: 0, y: 0, width: screenSize.width-20*2, height: 0))
         }
         setContents(title: title, message: message)
@@ -84,11 +84,11 @@ private extension KRAlertContentView {
 
         var buttonsHeight: CGFloat
         switch buttonLayoutType {
-        case .Vertical:
+        case .vertical:
             buttonsHeight = CGFloat(actions.count) * (buttonFrame().height + marginBetweenContents*2) - marginBetweenContents*2
-        case .VerticalTable:
+        case .verticalTable:
             buttonsHeight = buttonTableFrame.height
-        case .Horizontal:
+        case .horizontal:
             buttonsHeight = buttonFrame().height
         }
 
@@ -129,17 +129,17 @@ private extension KRAlertContentView {
         return CGRect(x: horizontalMargin, y: yPos, width: contentWidth, height: 230)
     }
 
-    func buttonFrame(index index: Int = 0) -> CGRect {
+    func buttonFrame(index: Int = 0) -> CGRect {
         let yPos = buttonFrameYPosition
         var point = CGPoint(x: horizontalMargin, y: yPos)
         var size = CGSize(width: contentWidth, height: 30)
 
         switch buttonLayoutType {
-        case .Vertical:
+        case .vertical:
             point.y += CGFloat(index) * (marginBetweenContents*2 + size.height)
-        case .VerticalTable:
-            return CGRect(origin: CGPointZero, size: size)
-        case .Horizontal:
+        case .verticalTable:
+            return CGRect(origin: CGPoint.zero, size: size)
+        case .horizontal:
             size.width = (contentWidth - horizontalMargin) / 2
             point.x += CGFloat(index) * (horizontalMargin + size.width)
         }
@@ -153,10 +153,10 @@ private extension KRAlertContentView {
  *  Actions --------------------
  */
 private extension KRAlertContentView {
-    func setContents(title title: String?, message: String?) {
-        titleLabel.configureLayout(titleFrame, text: title, controllerType: type, labelStyle: .Title)
+    func setContents(title: String?, message: String?) {
+        titleLabel.configureLayout(frame: titleFrame, text: title, controllerType: type, labelStyle: .title)
         addSubview(titleLabel)
-        messageLabel.configureLayout(messageFrame, text: message, controllerType: type, labelStyle: .Message)
+        messageLabel.configureLayout(frame: messageFrame, text: message, controllerType: type, labelStyle: .message)
         addSubview(messageLabel)
         if textFields.count>0 {
             textFieldView.configureLayout(textFieldViewFrame, textFields: textFields, controllerType: type)
@@ -166,15 +166,15 @@ private extension KRAlertContentView {
         if type.isShowIcon { setIcon() }
 
         switch buttonLayoutType {
-        case .VerticalTable:
+        case .verticalTable:
             setButtonTable()
         default:
             let buttons = getActionButtons()
             buttons.forEach { addSubview($0) }
         }
 
-        autoresizingMask = [.FlexibleTopMargin, .FlexibleRightMargin, .FlexibleBottomMargin, .FlexibleLeftMargin]
-        backgroundColor = .whiteColor()
+        autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleLeftMargin]
+        backgroundColor = .white
         layer.cornerRadius = 10
         var frame = self.frame
         frame.size.height = verticalMargin*2 + contentHeight
@@ -184,7 +184,7 @@ private extension KRAlertContentView {
     func setIcon() {
         let height = messageLabel.frame.origin.y + messageLabel.frame.height - titleLabel.frame.origin.y
         let origin = CGPoint(x: center.x - height, y: titleLabel.frame.origin.y)
-        let iconLayer = type.getIconLayer(CGRect(origin: origin, size: CGSize(width: height*2, height: height)))
+        let iconLayer = type.getIconLayer(rect: CGRect(origin: origin, size: CGSize(width: height*2, height: height)))
         iconLayer.zPosition = -1
         layer.addSublayer(iconLayer)
     }
@@ -195,18 +195,18 @@ private extension KRAlertContentView {
     }
 
     func getActionButtons() -> [KRAlertButton] {
-        var sortedActions = actions.filter({ $0.style != .Cancel })
-        if let cancelAction = actions.filter({ $0.style == .Cancel }).first {
-            if buttonLayoutType == .Horizontal && style == .Alert {
-                sortedActions.insert(cancelAction, atIndex: 0)
+        var sortedActions = actions.filter({ $0.style != .cancel })
+        if let cancelAction = actions.filter({ $0.style == .cancel }).first {
+            if buttonLayoutType == .horizontal && style == .alert {
+                sortedActions.insert(cancelAction, at: 0)
             } else {
                 sortedActions.append(cancelAction)
             }
         }
 
-        let buttons = sortedActions.enumerate().map { index, action -> KRAlertButton in
+        let buttons = sortedActions.enumerated().map { index, action -> KRAlertButton in
             let button = KRAlertButton(frame: buttonFrame(index: index), action: action, type: type)
-            button.addTarget(self, action: #selector(KRAlertContentView.actionButtonTapped(_:)), forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: #selector(KRAlertContentView.actionButtonTapped(_:)), for: .touchUpInside)
             return button
         }
         return buttons
@@ -218,7 +218,7 @@ private extension KRAlertContentView {
  *  Button actions --------------------
  */
 extension KRAlertContentView {
-    func actionButtonTapped(button: KRAlertButton) {
-        delegate?.didSelectActionButton(button.action)
+    func actionButtonTapped(_ button: KRAlertButton) {
+        delegate?.didSelectActionButton(action: button.action)
     }
 }

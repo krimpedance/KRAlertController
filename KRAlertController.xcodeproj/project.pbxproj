@@ -19,6 +19,8 @@
 		4BA755621D149DD9007B06A5 /* KRAlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA755611D149DD9007B06A5 /* KRAlertControllerTests.swift */; };
 		4BAB3F2A1D1D2C4200949F4F /* KRAlertTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB3F291D1D2C4200949F4F /* KRAlertTextFieldView.swift */; };
 		4BB4B9561D15A30E004570F1 /* KRAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB4B9551D15A30E004570F1 /* KRAlertAction.swift */; };
+		4BD66EE41D8A97490066BF6F /* KRAlertAction.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4BB4B9551D15A30E004570F1 /* KRAlertAction.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BD66EE51D8A97490066BF6F /* KRAlertController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 4B53A2991D1576A300EC2669 /* KRAlertController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BF2395C1D1A428A0076415B /* KRAlertControllerEnumerates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF2395B1D1A428A0076415B /* KRAlertControllerEnumerates.swift */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BA755561D149DD9007B06A5 /* KRAlertController.h in Headers */,
+				4BD66EE41D8A97490066BF6F /* KRAlertAction.swift in Headers */,
+				4BD66EE51D8A97490066BF6F /* KRAlertController.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +414,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -429,7 +433,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.mond.krimpedance.KRAlertController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

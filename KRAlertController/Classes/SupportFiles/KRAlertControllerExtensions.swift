@@ -13,16 +13,16 @@ import UIKit
 extension UILabel {
     func configureLayout(frame: CGRect, text: String?, controllerType: KRAlertControllerType, labelStyle: KRAlertLabelStyle) {
         numberOfLines = 0
-        lineBreakMode = .ByWordWrapping
-        textAlignment = .Center
-        backgroundColor = .clearColor()
+        lineBreakMode = .byWordWrapping
+        textAlignment = .center
+        backgroundColor = .clear
 
         switch labelStyle {
-        case .Title:
+        case .title:
             textColor = controllerType.textColor
-            font = UIFont.systemFontOfSize(20, weight: UIFontWeightBold)
-        case .Message:
-            font = UIFont.systemFontOfSize(15)
+            font = UIFont.systemFont(ofSize: 20, weight: UIFontWeightBold)
+        case .message:
+            font = UIFont.systemFont(ofSize: 15)
         }
 
         self.frame = frame
@@ -39,15 +39,15 @@ extension UILabel {
 extension UITextField {
     func configureLayout(frame: CGRect, type: KRAlertControllerType) {
         self.frame = frame
-        layer.borderColor = UIColor.clearColor().CGColor
+        layer.borderColor = UIColor.clear.cgColor
         layer.borderWidth = 0
-        font = UIFont.systemFontOfSize(15)
+        font = UIFont.systemFont(ofSize: 15)
         textColor = type.textColor
         attributedPlaceholder = NSAttributedString(
             string: placeholder ?? "",
             attributes: [NSForegroundColorAttributeName: type.buttonBackgroundColor]
         )
-        leftViewMode = .Always
+        leftViewMode = .always
         leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 5))
     }
 }
@@ -57,7 +57,7 @@ extension UITextField {
  *  UIApplication extension for get visible view controller
  */
 extension UIApplication {
-    class func topViewController(base: UIViewController? = UIApplication.sharedApplication().keyWindow?.rootViewController) -> UIViewController? {
+    class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let nav = base as? UINavigationController {
             return topViewController(nav.visibleViewController)
         }

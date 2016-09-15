@@ -31,7 +31,7 @@ class ViewController: UIViewController {
  *  Actions -------------
  */
 extension ViewController {
-    func getAlertText(index: Int, style: KRAlertControllerStyle) -> (title: String, message: String) {
+    func getAlertText(_ index: Int, style: KRAlertControllerStyle) -> (title: String, message: String) {
         switch index {
         case 1:
             return ("Normal", "This is .Normal alert\nThis is default.")
@@ -44,10 +44,10 @@ extension ViewController {
         case 5:
             return ("Error", "This is .Error alert.")
         case 6:
-            if style == .Alert { return ("Edit", "This is .Edit alert.\nThis alert added single text field.") }
+            if style == .alert { return ("Edit", "This is .Edit alert.\nThis alert added single text field.") }
             else { return ("Edit", "This is .Edit alert.\nText fields can only use .Alert style.") }
         case 7:
-            if style == .Alert { return ("Authorize", "This is .Authorize alert.\nThis alert added two text field.") }
+            if style == .alert { return ("Authorize", "This is .Authorize alert.\nThis alert added two text field.") }
             else { return ("Edit", "This is .Authorize alert.\nText fields can only use .Alert style.") }
         default:
             return ("", "")
@@ -60,26 +60,26 @@ extension ViewController {
  *  Button actions -------------
  */
 extension ViewController {
-    @IBAction func showAlertButtonTapped(sender: UIButton) {
+    @IBAction func showAlertButtonTapped(_ sender: UIButton) {
         let isDisplayIcon = (displayIconControl.selectedSegmentIndex==0) ? true : false
-        let alertStyle: KRAlertControllerStyle = (alertStyleControl.selectedSegmentIndex==0) ? .Alert : .ActionSheet
+        let alertStyle: KRAlertControllerStyle = (alertStyleControl.selectedSegmentIndex==0) ? .alert : .actionSheet
         let alertText = getAlertText(sender.tag, style: alertStyle)
 
         var alert: KRAlertController
         switch buttonNumControl.selectedSegmentIndex {
         case 0:
             alert = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle)
-                .addAction("OK")
+                .addAction(title: "OK")
             
         case 1:
             alert = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle)
-                .addAction("Button1")
+                .addAction(title: "Button1")
                 .addCancel()
             
         case 2:
             alert = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle)
-                .addAction("Button1")
-                .addAction("Button2")
+                .addAction(title: "Button1")
+                .addAction(title: "Button2")
                 .addCancel()
             
         default: return
@@ -98,7 +98,7 @@ extension ViewController {
             }
         }
         
-        if alertStyle == .ActionSheet { return }
+        if alertStyle == .actionSheet { return }
         
         switch sender.tag {
         case 6:
@@ -111,7 +111,7 @@ extension ViewController {
                 })
                 .addTextField({ (textField) in
                     textField.placeholder = "Password"
-                    textField.secureTextEntry = true
+                    textField.isSecureTextEntry = true
                 })
         default: break
         }
