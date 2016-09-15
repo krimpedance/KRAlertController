@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "KRAlertController"
-  s.version      = "1.1.0"
+  s.version      = "2.0.0"
   s.summary      = "A beautiful alert controller for your iOS."
   s.description  = "KRAlertController is a beautiful and easy-to-use alert controller on iOS."
   s.homepage     = "https://github.com/krimpedance/KRAlertController"
@@ -16,6 +16,6 @@ Pod::Spec.new do |s|
   s.source_files = "KRAlertController/**/*.swift"
   
   s.xcconfig = {
-    'SWIFT_VERSION' => '2.3'
+    'SWIFT_VERSION' => '3'
   }
 end
