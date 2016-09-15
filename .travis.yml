@@ -1,6 +1,4 @@
 language: objective-c
-env: SWIFT_VERSION=3.0
 osx_image: xcode8
-xcode_project: KRAlertController.xcodeproj
-xcode_scheme: KRAlertController
-xcode_sdk: iphonesimulator
+script:
+  - xcodebuild clean test -project KRAlertController.xcodeproj -scheme KRAlertController -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0'
