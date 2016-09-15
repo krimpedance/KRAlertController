@@ -1,5 +1,5 @@
 language: objective-c
-env: SWIFT_VERSION=3
+env: SWIFT_VERSION=3.0
 osx_image: xcode8
 xcode_project: KRAlertController.xcodeproj
 xcode_scheme: KRAlertController
