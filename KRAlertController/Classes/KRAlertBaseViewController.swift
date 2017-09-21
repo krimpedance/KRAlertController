@@ -4,7 +4,6 @@
 //
 //  Copyright © 2016年 Krimpedance. All rights reserved.
 //
-//  swiftlint:disable function_parameter_count
 
 import UIKit
 
