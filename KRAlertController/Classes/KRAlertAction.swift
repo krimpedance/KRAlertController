@@ -14,7 +14,7 @@ import UIKit
  *
  *  - returns: Void
  */
-public typealias KRAlertActionHandler = (_ action: KRAlertAction, _ textFields: [UITextField]) -> ()
+public typealias KRAlertActionHandler = (_ action: KRAlertAction, _ textFields: [UITextField]) -> Void
 
 /**
  *  A KRAlertAction object represents an action that can be taken when tapping a button in an alert.
@@ -22,28 +22,28 @@ public typealias KRAlertActionHandler = (_ action: KRAlertAction, _ textFields: 
  *  After creating an alert action object, add it to a KRAlertController object before displaying the corresponding alert to the user.
  */
 public struct KRAlertAction {
-    let actionId: String = UUID().uuidString
-    let handler: KRAlertActionHandler?
+   let actionId: String = UUID().uuidString
+   let handler: KRAlertActionHandler?
 
-    /// The text to use for the button title.
-    public let title: String?
-    /// Additional styling information to apply to the button.
-    public let style: KRAlertActionStyle
-    let isPreferred: Bool
-    public var enabled: Bool = true
+   /// The text to use for the button title.
+   public let title: String?
+   /// Additional styling information to apply to the button.
+   public let style: KRAlertActionStyle
+   let isPreferred: Bool
+   public var enabled: Bool = true
 
-    /**
+   /**
     Create and return an action with the specified title and behavior.
-
-     - parameter title:   The text to use for the button title.
-     - parameter style:   Additional styling information to apply to the button.
-     - parameter isPreferred: When true, Action title become preferred style.
-     - parameter handler: A block to execute when the user selects the action.
-     */
-    init(title: String?, style: KRAlertActionStyle, isPreferred: Bool, handler: KRAlertActionHandler?) {
-        self.title = title
-        self.style = style
-        self.handler = handler
-        self.isPreferred = isPreferred
-    }
+    
+    - parameter title:   The text to use for the button title.
+    - parameter style:   Additional styling information to apply to the button.
+    - parameter isPreferred: When true, Action title become preferred style.
+    - parameter handler: A block to execute when the user selects the action.
+    */
+   init(title: String?, style: KRAlertActionStyle, isPreferred: Bool, handler: KRAlertActionHandler?) {
+      self.title = title
+      self.style = style
+      self.handler = handler
+      self.isPreferred = isPreferred
+   }
 }

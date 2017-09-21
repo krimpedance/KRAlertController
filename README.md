@@ -11,20 +11,9 @@
 <img src="./Images/styles.png" height=300>
 
 ## Requirements
-#### ver. 2.\* (current version)
-- iOS 9.0+
-- Xcode 8.0+
-- Swift 3.\*
-
-#### ver. 1.\*(1.1.0 and over)
-- iOS 8.0+
-- Xcode 8.0+
-- Swift 2.3.\*
-
-#### ver. 1.\*(under 1.1.0)
-- iOS 8.0+
-- Xcode 7.\*
-- Swift 2.2.\*
+- iOS 10.0+
+- Xcode 9.0+
+- Swift 4.0+
 
 ## DEMO
 To run the example project, clone the repo, and open `KRAlertControllerDemo.xcodeproj` from the DEMO directory.
@@ -94,7 +83,7 @@ alert.showWarning(true, presentingVC: self, animated: false) {
 I'm seeking bug reports and feature requests.
 
 ## Release Note
-- 2.0.0 : Supported Swift3
+- 3.0.0 : Supported Xcode9 and Swift4.
 
 ## License
 KRAlertController is available under the MIT license. See the LICENSE file for more info.
