@@ -56,7 +56,6 @@ extension KRAlertController {
          fatalError("KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
       }
       actions.append(action)
-
       return self
    }
 
@@ -71,11 +70,7 @@ extension KRAlertController {
     */
    public func addDestructive(title: String, isPreferred: Bool = false, handler: KRAlertActionHandler? = nil) -> KRAlertController {
       let action = KRAlertAction(title: title, style: .destructive, isPreferred: isPreferred, handler: handler)
-      if actions.contains(where: { $0.style == .cancel }) {
-         fatalError("KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
-      }
       actions.append(action)
-
       return self
    }
 
@@ -90,11 +85,7 @@ extension KRAlertController {
     */
    public func addAction(title: String, isPreferred: Bool = false, handler: KRAlertActionHandler? = nil) -> KRAlertController {
       let action = KRAlertAction(title: title, style: .default, isPreferred: isPreferred, handler: handler)
-      if actions.contains(where: { $0.style == .cancel }) {
-         assert(action.style == .cancel, "KRAlertController can only have one action with a style of KRAlertActionStyle.Cancel")
-      }
       actions.append(action)
-
       return self
    }
 
@@ -237,7 +228,7 @@ extension KRAlertController {
  */
 extension KRAlertController {
    fileprivate func show(_ type: KRAlertControllerType, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
-      guard let vc = presentingVC ?? UIApplication.topViewController() else {
+      guard let vc = presentingVC ?? UIApplication.shared.topViewController() else {
          print("View controller to present alert controller isn't found!")
          return
       }

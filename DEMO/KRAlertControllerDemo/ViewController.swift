@@ -5,27 +5,27 @@
 //  Created by Ryunosuke Kirikihira on 2016/06/18.
 //  Copyright © 2016年 Krimpedance. All rights reserved.
 //
+// swiftlint:disable cyclomatic_complexity
 
 import UIKit
 import KRAlertController
 
 class ViewController: UIViewController {
-   
+
    @IBOutlet weak var alertStyleControl: UISegmentedControl!
    @IBOutlet weak var buttonNumControl: UISegmentedControl!
    @IBOutlet weak var displayIconControl: UISegmentedControl!
-   
+
    override func viewDidLoad() {
       super.viewDidLoad()
       // Do any additional setup after loading the view, typically from a nib.
    }
-   
+
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
    }
 }
-
 
 /**
  *  Actions -------------
@@ -44,17 +44,14 @@ extension ViewController {
       case 5:
          return ("Error", "This is .Error alert.")
       case 6:
-         if style == .alert { return ("Edit", "This is .Edit alert.\nThis alert added single text field.") }
-         else { return ("Edit", "This is .Edit alert.\nText fields can only use .Alert style.") }
+         if style == .alert { return ("Edit", "This is .Edit alert.\nThis alert added single text field.") } else { return ("Edit", "This is .Edit alert.\nText fields can only use .Alert style.") }
       case 7:
-         if style == .alert { return ("Authorize", "This is .Authorize alert.\nThis alert added two text field.") }
-         else { return ("Edit", "This is .Authorize alert.\nText fields can only use .Alert style.") }
+         if style == .alert { return ("Authorize", "This is .Authorize alert.\nThis alert added two text field.") } else { return ("Edit", "This is .Authorize alert.\nText fields can only use .Alert style.") }
       default:
          return ("", "")
       }
    }
 }
-
 
 /**
  *  Button actions -------------
@@ -64,27 +61,27 @@ extension ViewController {
       let isDisplayIcon = (displayIconControl.selectedSegmentIndex==0) ? true : false
       let alertStyle: KRAlertControllerStyle = (alertStyleControl.selectedSegmentIndex==0) ? .alert : .actionSheet
       let alertText = getAlertText(sender.tag, style: alertStyle)
-      
+
       var alert: KRAlertController
       switch buttonNumControl.selectedSegmentIndex {
       case 0:
          alert = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle)
             .addAction(title: "OK")
-         
+
       case 1:
          alert = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle)
             .addAction(title: "Button1")
             .addCancel()
-         
+
       case 2:
          alert = KRAlertController(title: alertText.title, message: alertText.message, style: alertStyle)
             .addAction(title: "Button1")
             .addAction(title: "Button2")
             .addCancel()
-         
+
       default: return
       }
-      
+
       defer {
          switch sender.tag {
          case 1: alert.show()
@@ -97,9 +94,9 @@ extension ViewController {
          default: break
          }
       }
-      
+
       if alertStyle == .actionSheet { return }
-      
+
       switch sender.tag {
       case 6:
          alert = alert.addTextField({ (textField) in

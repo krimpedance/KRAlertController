@@ -1,4 +1,4 @@
-[日本語](./README_Ja.md)
+[English](./README.md)
 
 # KRAlertController
 
@@ -9,23 +9,23 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CI Status](http://img.shields.io/travis/krimpedance/KRAlertController.svg?style=flat)](https://travis-ci.org/krimpedance/KRAlertController)
 
-`KRAlertController` is a beautiful and easy-to-use alert controller for your iOS written by Swift.
+`KRAlertController`はピュアSwiftの綺麗で使いやすいアラートコントローラーです.
 
 <img src="./Images/styles.png" height=300>
 
-## Requirements
+## 必要環境
 - iOS 10.0+
 - Xcode 9.0+
 - Swift 4.0+
 
-## DEMO
-To run the example project, clone the repo, and open `KRAlertControllerDemo.xcodeproj` from the DEMO directory.
+## デモ
+`DEMO/`以下にあるサンプルプロジェクトから確認してください.
 
-or [appetize.io](https://appetize.io/app/jc2066a1jncndy2uet7wkp0ykg)
+または, [appetize.io](https://appetize.io/app/jc2066a1jncndy2uet7wkp0ykg)にてシュミレートしてください.
 
-## Installation
-KRAlertController is available through [CocoaPods](http://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage).
-To install it, simply add the following line to your Podfile or Cartfile:
+## インストール
+KRAlertControllerは[CocoaPods](http://cocoapods.org)と[Carthage](https://github.com/Carthage/Carthage)で
+インストールすることができます.
 
 ```ruby
 # Podfile
@@ -37,14 +37,14 @@ pod "KRAlertController"
 github "Krimpedance/KRAlertController"
 ```
 
-## Usage
-(see sample Xcode project in /Demo)
+## 使い方
+(`/Demo`以下のサンプルを見てみてください)
 
-**Mainly the same as UIAlertController.**
+**大まかな使い方はUIAlertControllerと同じです.**
 
-At first, import `KRAlertController` in your swift file.
+まず, `KRAlertController`をインポートします.
 
-Show simple alert.
+シンプルなアラートの表示
 
 ```Swift
 KRAlertController(title: "Title", message: "message")
@@ -55,15 +55,20 @@ KRAlertController(title: "Title", message: "message")
   .show()
 ```
 
-### Initializer
+### イニシャライザ
 ```Swift
 init(title: String?, message: String?, style: KRAlertControllerStyle = .Alert)
 ```
 
-### Alert types
-There is 7 kinds of alert.
-`icon` pass true to display glaph icon; otherwise, pass false.
-Default view controller to display alert is visible view controller of key window.
+### アラートの種類
+KRAlertControllerには7種類のアラートがあります.
+
+それぞれ色やアイコンが異なり, 用途によって使い分けます.
+`icon`を`false`にすると, アイコンを非表示にできます.
+
+`presentingVC`には表示するViewControllerを設定します.
+未設定の場合は, `keyWindow`の最前面のViewControllerに表示されます.
+
 ```Swift
 func show(presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil)
 func showSuccess(icon icon: Bool, presentingVC: UIViewController? = nil, animated: Bool = true, completion: (() -> ())? = nil)
@@ -82,11 +87,14 @@ alert.showWarning(true, presentingVC: self, animated: false) {
 }
 ```
 
-## Contributing to this project
-I'm seeking bug reports and feature requests.
+## ライブラリに関する質問等
+バグや機能のリクエストがありましたら, 気軽にコメントしてください.
 
-## Release Note
-- 3.0.0 : Supported Xcode9 and Swift4.
+## リリースノート
++ 3.0.0 :
+  - Supported Xcode9 and Swift4.
 
-## License
-KRAlertController is available under the MIT license. See the LICENSE file for more info.
+## ライセンス
+KRAlertControllerはMITライセンスに準拠しています.
+
+詳しくは`LICENSE`ファイルをみてください.
