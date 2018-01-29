@@ -11,7 +11,7 @@
 
 `KRAlertController`はピュアSwiftの綺麗で使いやすいアラートコントローラーです.
 
-<img src="./Images/styles.png" height=300>
+<img src="https://github.com/krimpedance/Resources/blob/master/KRAlertController/styles.png" height=300>
 
 ## 必要環境
 - iOS 10.0+

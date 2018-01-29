@@ -11,7 +11,7 @@
 
 `KRAlertController` is a beautiful and easy-to-use alert controller for your iOS written by Swift.
 
-<img src="./Images/styles.png" height=300>
+<img src="https://github.com/krimpedance/Resources/blob/master/KRAlertController/styles.png" height=300>
 
 ## Requirements
 - iOS 10.0+
