@@ -91,8 +91,11 @@ alert.showWarning(true, presentingVC: self, animated: false) {
 バグや機能のリクエストがありましたら, 気軽にコメントしてください.
 
 ## リリースノート
++ 3.0.1 :
+  - Swift 4.1 に対応
+
 + 3.0.0 :
-  - Supported Xcode9 and Swift4.
+  - Xcode9, Swift4 に対応
 
 ## ライセンス
 KRAlertControllerはMITライセンスに準拠しています.
