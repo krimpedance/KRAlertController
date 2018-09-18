@@ -15,8 +15,8 @@
 
 ## Requirements
 - iOS 10.0+
-- Xcode 9.0+
-- Swift 4.0+
+- Xcode 10.0+
+- Swift 4.2+
 
 ## DEMO
 To run the example project, clone the repo, and open `KRAlertControllerDemo.xcodeproj` from the DEMO directory.
@@ -86,8 +86,12 @@ alert.showWarning(true, presentingVC: self, animated: false) {
 I'm seeking bug reports and feature requests.
 
 ## Release Note
++ 3.1.0
+  - Compatible with Swift 4.2.
+
 + 3.0.1
   - Compatible with Swift 4.1.
+
 + 3.0.0
   - Supported Xcode9 and Swift4.
 

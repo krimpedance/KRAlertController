@@ -15,8 +15,8 @@
 
 ## 必要環境
 - iOS 10.0+
-- Xcode 9.0+
-- Swift 4.0+
+- Xcode 10.0+
+- Swift 4.2+
 
 ## デモ
 `DEMO/`以下にあるサンプルプロジェクトから確認してください.
@@ -91,6 +91,9 @@ alert.showWarning(true, presentingVC: self, animated: false) {
 バグや機能のリクエストがありましたら, 気軽にコメントしてください.
 
 ## リリースノート
++ 3.1.0 :
+  - Swift 4.2 に対応
+
 + 3.0.1 :
   - Swift 4.1 に対応
 
