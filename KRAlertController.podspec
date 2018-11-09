@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/krimpedance/KRAlertController"
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
-  s.author       = { "krimpedance" => "krimpedance@gmail.com" }
+  s.author       = { "krimpedance" => "info@krimpedance.com" }
   s.requires_arc = true
   s.platform     = :ios, '10.0'
   s.ios.deployment_target = '10.0'
